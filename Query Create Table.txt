@@ -1,0 +1,89 @@
+create table kategori_barang(
+id_kategori varchar2(10),
+nama_kategori varchar2(20),
+CONSTRAINT kategori_pk PRIMARY KEY (id_kategori)
+)
+
+create table jenis_barang(
+id_jenis varchar2(10),
+id_kategori varchar2(10),
+nama_jenis varchar2(20),
+CONSTRAINT jenis_pk PRIMARY KEY (id_jenis),
+CONSTRAINT fk_kategori FOREIGN KEY (id_kategori) REFERENCES kategori_barang(id_kategori)
+)
+
+create table merk(
+id_merk varchar2(5),
+nama_merk varchar2(20),
+CONSTRAINT merk_pk PRIMARY KEY (id_merk)
+)
+
+create table detail_jenis_merk(
+id_detail varchar2(10),
+id_jenis varchar2(10),
+id_merk varchar2(5),
+CONSTRAINT detail_pk PRIMARY KEY (id_detail),
+CONSTRAINT fk_jenis FOREIGN KEY (id_jenis) REFERENCES jenis_barang(id_jenis),
+CONSTRAINT fk_merk FOREIGN KEY (id_merk) REFERENCES merk(id_merk)
+)
+
+create table Barang(
+id_barang varchar2(10),
+id_detail varchar2(10),
+harga_perkiraan number(10),
+foto varchar2(100),
+deskripsi varchar2(100),
+CONSTRAINT barang_pk PRIMARY KEY (id_barang),
+CONSTRAINT fk_detail FOREIGN KEY (id_detail) REFERENCES detail_jenis_merk(id_detail)
+)
+
+create table role(
+id_role char(1),
+nama_role varchar2(5),
+CONSTRAINT role_pk PRIMARY KEY (id_role)
+)
+
+create table akun(
+nik varchar2(16),
+nama varchar2(30),
+jenis_kelamin char(1),
+alamat varchar2(100),
+rt_rw varchar2(8),
+desa varchar2(20),
+kecamatan varchar2(25),
+kabupaten varchar2(25),
+provinsi varchar2(30),
+id_role	char(1),
+CONSTRAINT akun_pk PRIMARY KEY (nik),
+CONSTRAINT fk_role FOREIGN KEY (id_role) REFERENCES role(id_role)
+)
+
+create table Pengajuan(
+id_pengajuan varchar2(10),
+nik varchar2(16),
+id_barang varchar2(10),
+tanggal_pengajuan Date,
+status char(1),
+CONSTRAINT pengajuan_pk PRIMARY KEY (id_pengajuan),
+CONSTRAINT fk_akun FOREIGN KEY (nik) REFERENCES akun(nik),
+CONSTRAINT fk_barang FOREIGN KEY (id_barang) REFERENCES barang(id_barang)
+)
+
+create table Transaksi(
+id_transaksi varchar2(10),
+id_pengajuan varchar2(10),
+tanggal_tansaksi Date,
+dana_cair number(10),
+CONSTRAINT transaksi_pk PRIMARY KEY (id_transaksi),
+CONSTRAINT fk_pengajuan FOREIGN KEY (id_pengajuan) REFERENCES Pengajuan(id_pengajuan)
+)
+
+create table angsuran(
+id_angsuran varchar2(10),
+id_transaksi varchar2(10),
+tanggal_bayar Date,
+nominal_angsuran number(10),
+status char(1),
+CONSTRAINT angsuran_pk PRIMARY KEY (id_angsuran),
+CONSTRAINT fk_transaksi FOREIGN KEY (id_transaksi) REFERENCES transaksi(id_transaksi)
+)
