@@ -12,5 +12,6 @@ package tools;
 public class MyTester {
     public static void main(String[] args) {
         System.out.println(HibernateUtil.getSessionFactory());
+        System.out.println("Berhasil");
     }
 }
