@@ -8,6 +8,8 @@ package controllers;
 import daos.DetailJenisMerkDAO;
 import entities.Barang;
 import entities.DetailJenisMerk;
+import entities.JenisBarang;
+import entities.Merk;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -23,8 +25,8 @@ public class DetailJMController {
         this.dAO = new DetailJenisMerkDAO(factory);
     }
     
-    public boolean saveOrEdit(String detailId, String jenisId, String merkId){
-        DetailJenisMerk jenisMerk = new DetailJenisMerk(detailId, null, null);
+    public boolean saveOrEdit(String detailId, JenisBarang jenisId, Merk merkId){
+        DetailJenisMerk jenisMerk = new DetailJenisMerk(detailId, jenisId, merkId);
         return this.dAO.insertOrUpdate(jenisMerk);
     }
     

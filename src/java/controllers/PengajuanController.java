@@ -6,6 +6,8 @@
 package controllers;
 
 import daos.PengajuanDAO;
+import entities.Akun;
+import entities.Barang;
 import entities.Pengajuan;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,8 +25,8 @@ public class PengajuanController {
         this.dAO = new PengajuanDAO(factory);
     }
     
-    public boolean saveOrEdit(String pengajuanId, String nik, String barangId, Date tanggalPengajuan, char Status){
-        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, null, null);
+    public boolean saveOrEdit(String pengajuanId, Akun nik, Barang barangId, Date tanggalPengajuan, char Status){
+        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, nik, barangId);
         return this.dAO.insertOrUpdate(pengajuan);
     }
     

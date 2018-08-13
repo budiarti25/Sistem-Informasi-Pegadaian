@@ -7,6 +7,7 @@ package controllers;
 
 import daos.JenisBarangDAO;
 import entities.JenisBarang;
+import entities.KategoriBarang;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -22,8 +23,8 @@ public class JenisBarangController {
         this.dAO = new JenisBarangDAO(factory);
     }
     
-    public boolean saveOrEdit(String jenisId, String kategoriId, String namaJenis){
-        JenisBarang jenisBarang = new JenisBarang(jenisId, namaJenis, null);
+    public boolean saveOrEdit(String jenisId, KategoriBarang kategoriId, String namaJenis){
+        JenisBarang jenisBarang = new JenisBarang(jenisId, namaJenis, kategoriId);
         return this.dAO.insertOrUpdate(jenisBarang);
     }
     

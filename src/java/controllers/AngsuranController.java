@@ -7,6 +7,7 @@ package controllers;
 
 import daos.AngsuranDAO;
 import entities.Angsuran;
+import entities.Transaksi;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
@@ -25,8 +26,8 @@ public class AngsuranController {
     
     }
 
-    public boolean saveOrEdit(String angsuranId, String transaksiId, Date tanggalBayar, int nominalAngsuran, char status) {
-        Angsuran angsuran = new Angsuran(angsuranId, tanggalBayar, Long.MIN_VALUE, status, null);
+    public boolean saveOrEdit(String angsuranId, Transaksi transaksiId, Date tanggalBayar, int nominalAngsuran, char status) {
+        Angsuran angsuran = new Angsuran(angsuranId, tanggalBayar, Integer.toUnsignedLong(nominalAngsuran), status,transaksiId);
         return this.dAO.insertOrUpdate(angsuran);
     }
 

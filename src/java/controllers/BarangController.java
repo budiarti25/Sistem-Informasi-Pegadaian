@@ -7,6 +7,7 @@ package controllers;
 
 import daos.BarangDAO;
 import entities.Barang;
+import entities.DetailJenisMerk;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -22,8 +23,8 @@ public class BarangController {
         this.dAO = new BarangDAO(factory);
     }
     
-    public boolean saveOrEdit(String barangId, String detailId, String hargaPerkiraan, String foto, String deskripsi){
-        Barang barang = new Barang(barangId, Long.parseLong(hargaPerkiraan), foto, deskripsi, null);
+    public boolean saveOrEdit(String barangId, DetailJenisMerk detailId, String hargaPerkiraan, String foto, String deskripsi){
+        Barang barang = new Barang(barangId, Long.parseLong(hargaPerkiraan), foto, deskripsi, detailId);
         return this.dAO.insertOrUpdate(barang);
     }
     

@@ -6,6 +6,7 @@
 package controllers;
 
 import daos.TransaksiDAO;
+import entities.Pengajuan;
 import entities.Transaksi;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public class TransaksiController {
         this.dAO = new TransaksiDAO(factory);
     }
     
-    public boolean saveOrEdit(String transaksiId, String pengajuanId, Date tanggalTransaksi, String danaCair){
-        Transaksi transaksi = new Transaksi(transaksiId, tanggalTransaksi, Long.parseLong(danaCair), null);
+    public boolean saveOrEdit(String transaksiId, Pengajuan pengajuanId, Date tanggalTransaksi, String danaCair){
+        Transaksi transaksi = new Transaksi(transaksiId, tanggalTransaksi, Long.parseLong(danaCair), pengajuanId);
         return this.dAO.insertOrUpdate(transaksi);
     }
     

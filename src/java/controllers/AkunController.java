@@ -7,6 +7,7 @@ package controllers;
 
 import daos.AkunDAO;
 import entities.Akun;
+import entities.Role;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -22,8 +23,8 @@ public class AkunController {
         this.dAO = new AkunDAO(factory);
     }
     
-    public boolean saveOrEdit(String nik, String nama, char jk, String alamat, String rtrw, String desa, String kecamatan, String kabupaten, String provinsi, String roleId){
-        Akun akun = new Akun(nik, nama, jk, alamat, rtrw, desa, kecamatan, kabupaten, provinsi, null);
+    public boolean saveOrEdit(String nik, String nama, char jk, String alamat, String rtrw, String desa, String kecamatan, String kabupaten, String provinsi, Role roleId){
+        Akun akun = new Akun(nik, nama, jk, alamat, rtrw, desa, kecamatan, kabupaten, provinsi, roleId);
         return this.dAO.insertOrUpdate(akun);
     }
     
