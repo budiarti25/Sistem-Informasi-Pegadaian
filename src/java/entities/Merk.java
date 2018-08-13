@@ -50,6 +50,7 @@ public class Merk implements Serializable {
         this.namaMerk = namaMerk;
     }
 
+    
     public Merk(String idMerk) {
         this.idMerk = idMerk;
     }

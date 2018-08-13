@@ -56,6 +56,7 @@ public class Barang implements Serializable {
     public Barang() {
     }
 
+    
     public Barang(String idBarang, Long hargaPerkiraan, String foto, String deskripsi, DetailJenisMerk idDetail) {
         this.idBarang = idBarang;
         this.hargaPerkiraan = hargaPerkiraan;

@@ -50,6 +50,7 @@ public class Role implements Serializable {
         this.namaRole = namaRole;
     }
 
+    
     public Role(String idRole) {
         this.idRole = idRole;
     }

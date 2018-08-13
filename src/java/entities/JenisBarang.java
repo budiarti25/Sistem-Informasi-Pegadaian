@@ -41,7 +41,7 @@ public class JenisBarang implements Serializable {
     private String idJenis;
     @Column(name = "NAMA_JENIS")
     private String namaJenis;
-    @JoinColumn(name = "ID_JENIS", referencedColumnName = "ID_JENIS")
+    @JoinColumn(name = "ID_KATEGORI", referencedColumnName = "ID_KATEGORI")
     @ManyToOne(fetch = FetchType.LAZY)
     private KategoriBarang idKategori;
     @OneToMany(mappedBy = "idJenis", fetch = FetchType.LAZY)
@@ -73,8 +73,8 @@ public class JenisBarang implements Serializable {
         return namaJenis;
     }
 
-    public void setNamaJenis(String namaKategori) {
-        this.namaJenis = namaKategori;
+    public void setNamaJenis(String namaJenis) {
+        this.namaJenis = namaJenis;
     }
 
     public KategoriBarang getIdKategori() {

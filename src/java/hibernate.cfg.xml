@@ -57,10 +57,10 @@ Contributor(s):
     <mapping class="entities.Barang"/>
     <mapping class="entities.DetailJenisMerk"/>
     <mapping class="entities.JenisBarang"/>
-    <mapping class="entities.KategoriBarang"/>
     <mapping class="entities.Merk"/>
     <mapping class="entities.Pengajuan"/>
     <mapping class="entities.Role"/>
     <mapping class="entities.Transaksi"/>
+    <mapping class="entities.KategoriBarang"/>
   </session-factory>
 </hibernate-configuration>

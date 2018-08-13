@@ -50,6 +50,7 @@ public class KategoriBarang implements Serializable {
         this.namaKategori = namaKategori;
     }
 
+    
     public KategoriBarang(String idKategori) {
         this.idKategori = idKategori;
     }
