@@ -50,7 +50,22 @@ public class FunctionDAO implements InterfaceDAO{
 
     @Override
     public boolean delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean flag = false;
+        try {
+            this.session = this.factory.openSession();
+            this.transaction = this.session.beginTransaction();
+            this.session.delete(id);
+            this.transaction.commit();
+            flag = true;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            if (this.transaction != null) {
+                this.transaction.rollback();
+            }
+        } finally {
+            this.session.close();
+        }
+        return flag;
     }
 
     @Override

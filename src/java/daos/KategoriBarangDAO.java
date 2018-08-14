@@ -27,8 +27,8 @@ public class KategoriBarangDAO {
         return this.fdao.insertUpdate(kategoriBarang);
     }
     
-    public boolean delete(String id){
-        return this.fdao.delete(id);
+    public boolean delete(String kategoriId){
+        return this.fdao.delete(kategoriId);
     }
     
     public List<Object> getAll(){

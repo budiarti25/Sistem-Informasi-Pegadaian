@@ -43,10 +43,12 @@ public class AkunViewServlet extends HttpServlet {
         String kab = request.getParameter("txtKabupaten");
         String prov = request.getParameter("txtProvinsi");
         String role = request.getParameter("txtRole");
+        String user = request.getParameter("txtUsername");
+        String pass = request.getParameter("txtPassword");
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
             AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
-            if (ac.saveOrEdit(nik, nama, jk, alamat, rtrw, desa, alamat, kab, prov, role)) {
+            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov,user, pass, role)) {
                 out.print("success added");
             }else{
             
