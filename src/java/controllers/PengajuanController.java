@@ -25,8 +25,8 @@ public class PengajuanController {
         this.dAO = new PengajuanDAO(factory);
     }
     
-    public boolean saveOrEdit(String pengajuanId, Akun nik, Barang barangId, Date tanggalPengajuan, char Status){
-        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, nik, barangId);
+    public boolean saveOrEdit(String pengajuanId, String nik, String barangId, Date tanggalPengajuan, char Status){
+        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, new Akun(nik), new Barang(barangId));
         return this.dAO.insertOrUpdate(pengajuan);
     }
     

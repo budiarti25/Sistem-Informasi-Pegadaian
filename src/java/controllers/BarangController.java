@@ -23,8 +23,8 @@ public class BarangController {
         this.dAO = new BarangDAO(factory);
     }
     
-    public boolean saveOrEdit(String barangId, DetailJenisMerk detailId, String hargaPerkiraan, String foto, String deskripsi){
-        Barang barang = new Barang(barangId, Long.parseLong(hargaPerkiraan), foto, deskripsi, detailId);
+    public boolean saveOrEdit(String barangId, String detailId, String hargaPerkiraan, String foto, String deskripsi){
+        Barang barang = new Barang(barangId, Long.parseLong(hargaPerkiraan), foto, deskripsi, new DetailJenisMerk(detailId));
         return this.dAO.insertOrUpdate(barang);
     }
     

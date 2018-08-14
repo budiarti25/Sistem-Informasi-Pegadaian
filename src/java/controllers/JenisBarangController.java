@@ -23,8 +23,8 @@ public class JenisBarangController {
         this.dAO = new JenisBarangDAO(factory);
     }
     
-    public boolean saveOrEdit(String jenisId, KategoriBarang kategoriId, String namaJenis){
-        JenisBarang jenisBarang = new JenisBarang(jenisId, namaJenis, kategoriId);
+    public boolean saveOrEdit(String jenisId, String kategoriId, String namaJenis){
+        JenisBarang jenisBarang = new JenisBarang(jenisId, namaJenis, new KategoriBarang(kategoriId));
         return this.dAO.insertOrUpdate(jenisBarang);
     }
     
