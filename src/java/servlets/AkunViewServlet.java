@@ -5,12 +5,15 @@
  */
 package servlets;
 
+import controllers.AkunController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tools.HibernateUtil;
 
 /**
  *
@@ -30,17 +33,27 @@ public class AkunViewServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String nik = request.getParameter("txtNik");
+        String nama = request.getParameter("txtNama");
+        String jk= request.getParameter("radioJenisKelamin");
+        String alamat = request.getParameter("txtAlamat");
+        String rtrw = request.getParameter("txtRtRw");
+        String desa = request.getParameter("txtDesa");
+        String kec = request.getParameter("txtKecamatan");
+        String kab = request.getParameter("txtKabupaten");
+        String prov = request.getParameter("txtProvinsi");
+        String role = request.getParameter("txtRole");
+        RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AkunViewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AkunViewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
+            if (ac.saveOrEdit(nik, nama, jk, alamat, rtrw, desa, alamat, kab, prov, role)) {
+                out.print("success added");
+            }else{
+            
+                out.print("failed");
+            }
+            //dispatcher = request.getRequestDispatcher("views/location1View.jsp");
+            dispatcher.include(request, response);
         }
     }
 

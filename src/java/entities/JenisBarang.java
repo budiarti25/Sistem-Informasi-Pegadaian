@@ -56,7 +56,6 @@ public class JenisBarang implements Serializable {
         this.idKategori = idKategori;
     }
 
-    
     public JenisBarang(String idJenis) {
         this.idJenis = idJenis;
     }

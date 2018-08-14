@@ -23,8 +23,8 @@ public class AkunController {
         this.dAO = new AkunDAO(factory);
     }
     
-    public boolean saveOrEdit(String nik, String nama, char jk, String alamat, String rtrw, String desa, String kecamatan, String kabupaten, String provinsi, Role roleId){
-        Akun akun = new Akun(nik, nama, jk, alamat, rtrw, desa, kecamatan, kabupaten, provinsi, roleId);
+    public boolean saveOrEdit(String nik, String nama, Character jenisKelamin, String alamat, String rtRw, String desa, String kecamatan, String kabupaten, String provinsi, String username, String password, Role idRole){
+        Akun akun = new Akun(nik, nama, jenisKelamin, alamat, rtRw, desa, kecamatan, kabupaten, provinsi, username, password, idRole);
         return this.dAO.insertOrUpdate(akun);
     }
     

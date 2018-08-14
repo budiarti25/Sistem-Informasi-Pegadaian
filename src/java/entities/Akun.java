@@ -38,7 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Akun.findByDesa", query = "SELECT a FROM Akun a WHERE a.desa = :desa")
     , @NamedQuery(name = "Akun.findByKecamatan", query = "SELECT a FROM Akun a WHERE a.kecamatan = :kecamatan")
     , @NamedQuery(name = "Akun.findByKabupaten", query = "SELECT a FROM Akun a WHERE a.kabupaten = :kabupaten")
-    , @NamedQuery(name = "Akun.findByProvinsi", query = "SELECT a FROM Akun a WHERE a.provinsi = :provinsi")})
+    , @NamedQuery(name = "Akun.findByProvinsi", query = "SELECT a FROM Akun a WHERE a.provinsi = :provinsi")
+    , @NamedQuery(name = "Akun.findByUsername", query = "SELECT a FROM Akun a WHERE a.username = :username")
+    , @NamedQuery(name = "Akun.findByPassword", query = "SELECT a FROM Akun a WHERE a.password = :password")})
 public class Akun implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,6 +64,10 @@ public class Akun implements Serializable {
     private String kabupaten;
     @Column(name = "PROVINSI")
     private String provinsi;
+    @Column(name = "USERNAME")
+    private String username;
+    @Column(name = "PASSWORD")
+    private String password;
     @OneToMany(mappedBy = "nik", fetch = FetchType.LAZY)
     private List<Pengajuan> pengajuanList;
     @JoinColumn(name = "ID_ROLE", referencedColumnName = "ID_ROLE")
@@ -71,7 +77,7 @@ public class Akun implements Serializable {
     public Akun() {
     }
 
-    public Akun(String nik, String nama, Character jenisKelamin, String alamat, String rtRw, String desa, String kecamatan, String kabupaten, String provinsi, Role idRole) {
+    public Akun(String nik, String nama, Character jenisKelamin, String alamat, String rtRw, String desa, String kecamatan, String kabupaten, String provinsi, String username, String password, Role idRole) {
         this.nik = nik;
         this.nama = nama;
         this.jenisKelamin = jenisKelamin;
@@ -81,6 +87,8 @@ public class Akun implements Serializable {
         this.kecamatan = kecamatan;
         this.kabupaten = kabupaten;
         this.provinsi = provinsi;
+        this.username = username;
+        this.password = password;
         this.idRole = idRole;
     }
 
@@ -159,6 +167,22 @@ public class Akun implements Serializable {
 
     public void setProvinsi(String provinsi) {
         this.provinsi = provinsi;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @XmlTransient

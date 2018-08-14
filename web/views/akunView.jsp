@@ -18,7 +18,8 @@
         <h2>Data Akun</h2>
           <div class="table-responsive">
               <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory()); %>
-              
+             
+              <form action="akunViewServlet" method="GET">
               <table border="0">
             <tbody>
                 <tr>
@@ -69,10 +70,21 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td><input type="hidden" name="txtRole" value="U" /></td>
+                    <td><input type="hidden" name="txtRole" id="selectRole" value="U" /></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td>:</td>
+                    <td><input type="text" name="txtUsername" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input type="password" name="txtPassword" value="" /></td>
                 </tr>
             </tbody>
         </table>
+              </form>
               <br>
               <input type="submit" value="Save" name="btnSave" />
         <br>
@@ -112,7 +124,7 @@
                     <td><%= akun.getProvinsi() %></td>
                     <td><%= akun.getIdRole().getNamaRole() %></td>
                     <td>
-                        <a href="=<%=akun.getNik() %>">Edit</a>
+                        <a href="../akunViewServlet=?txtId<%=akun.getNik() %>">Edit</a>
                     </td>
                 </tr>
                 <% i++;
