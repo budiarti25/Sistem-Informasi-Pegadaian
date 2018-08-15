@@ -52,4 +52,9 @@ public class MerkController {
         Merk merk = new Merk();
         return this.dAO.getById(merkId);
     }
+    
+    public Object AutoId(){
+        Merk merk = new Merk();
+        return this.dAO.getAutoId();
+    }
 }

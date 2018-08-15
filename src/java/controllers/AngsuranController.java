@@ -26,8 +26,9 @@ public class AngsuranController {
     
     }
 
-    public boolean saveOrEdit(String angsuranId, Transaksi transaksiId, Date tanggalBayar, int nominalAngsuran, char status) {
-        Angsuran angsuran = new Angsuran(angsuranId, tanggalBayar, Integer.toUnsignedLong(nominalAngsuran), status,transaksiId);
+    public boolean saveOrEdit(String angsuranId, String transaksiId, Date tanggalBayar, int nominalAngsuran, char status) {
+        Angsuran angsuran = new Angsuran(angsuranId, tanggalBayar, Integer.toUnsignedLong(nominalAngsuran),
+                status,new Transaksi(transaksiId));
         return this.dAO.insertOrUpdate(angsuran);
     }
 
@@ -55,5 +56,10 @@ public class AngsuranController {
     public Object findByID(String angsuranId) {
         Angsuran angsuran = new Angsuran();
         return this.dAO.getById(angsuranId);
+    }
+    
+    public Object AutoId(){
+        Angsuran angsuran = new Angsuran();
+        return this.dAO.getAutoId();
     }
 }

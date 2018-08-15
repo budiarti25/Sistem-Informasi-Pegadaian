@@ -24,8 +24,8 @@ public class TransaksiController {
         this.dAO = new TransaksiDAO(factory);
     }
     
-    public boolean saveOrEdit(String transaksiId, Pengajuan pengajuanId, Date tanggalTransaksi, String danaCair){
-        Transaksi transaksi = new Transaksi(transaksiId, tanggalTransaksi, Long.parseLong(danaCair), pengajuanId);
+    public boolean saveOrEdit(String transaksiId, String pengajuanId, Date tanggalTransaksi, String danaCair){
+        Transaksi transaksi = new Transaksi(transaksiId, tanggalTransaksi, Long.parseLong(danaCair), new Pengajuan(pengajuanId));
         return this.dAO.insertOrUpdate(transaksi);
     }
     
@@ -53,5 +53,10 @@ public class TransaksiController {
     public Object findByID(String transaksiId){
         Transaksi transaksi = new Transaksi();
         return this.dAO.getById(transaksiId);
+    }
+    
+    public Object AutoId(){
+        Transaksi transaksi = new Transaksi();
+        return this.dAO.getAutoId();
     }
 }

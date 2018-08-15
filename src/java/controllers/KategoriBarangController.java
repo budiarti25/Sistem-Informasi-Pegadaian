@@ -52,4 +52,9 @@ public class KategoriBarangController {
         KategoriBarang kategoriBarang = new KategoriBarang();
         return this.dAO.getById(kategoriId);
     }
+    
+    public Object AutoId(){
+        KategoriBarang kategoriBarang = new KategoriBarang();
+        return this.dAO.getAutoId();
+    }
 }

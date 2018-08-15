@@ -42,4 +42,8 @@ public class KategoriBarangDAO {
     public Object getById(String id){
         return this.fdao.getById(id);
     }
+    
+    public Object getAutoId(){
+        return this.fdao.getById("select concat('KT',LPAD(to_number(substr(max(id_kategori),3,2))+1,1,'0')) from kategori_barang");
+    }
 }

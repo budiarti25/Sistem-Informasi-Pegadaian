@@ -25,8 +25,8 @@ public class PengajuanController {
         this.dAO = new PengajuanDAO(factory);
     }
     
-    public boolean saveOrEdit(String pengajuanId, Akun nik, Barang barangId, Date tanggalPengajuan, char Status){
-        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, nik, barangId);
+    public boolean saveOrEdit(String pengajuanId, String nik, String barangId, Date tanggalPengajuan, char Status){
+        Pengajuan pengajuan = new Pengajuan(pengajuanId, tanggalPengajuan, Status, new Akun(nik), new Barang(barangId));
         return this.dAO.insertOrUpdate(pengajuan);
     }
     
@@ -54,5 +54,10 @@ public class PengajuanController {
     public Object findByID(String pengajuanId){
         Pengajuan pengajuan = new Pengajuan();
         return this.dAO.getById(pengajuanId);
+    }
+    
+    public Object AutoId(){
+        Pengajuan pengajuan = new Pengajuan();
+        return this.dAO.getAutoId();
     }
 }

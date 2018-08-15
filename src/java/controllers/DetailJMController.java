@@ -25,8 +25,8 @@ public class DetailJMController {
         this.dAO = new DetailJenisMerkDAO(factory);
     }
     
-    public boolean saveOrEdit(String detailId, JenisBarang jenisId, Merk merkId){
-        DetailJenisMerk jenisMerk = new DetailJenisMerk(detailId, jenisId, merkId);
+    public boolean saveOrEdit(String detailId, String jenisId, String merkId){
+        DetailJenisMerk jenisMerk = new DetailJenisMerk(detailId, new JenisBarang(jenisId), new Merk(merkId));
         return this.dAO.insertOrUpdate(jenisMerk);
     }
     
@@ -54,5 +54,10 @@ public class DetailJMController {
     public Object findByID(String detailId){
         DetailJenisMerk jenisMerk = new DetailJenisMerk();
         return this.dAO.getById(detailId);
+    }
+    
+    public Object AutoId(){
+        DetailJenisMerk jenisMerk = new DetailJenisMerk();
+        return this.dAO.getAutoId();
     }
 }

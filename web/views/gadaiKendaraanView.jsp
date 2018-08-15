@@ -46,12 +46,6 @@
                             <td>Merk</td>
                             <td>:</td>
                             <td><select name="cbxMerk">
-                                    <%
-                                        DetailJMController detailJMController = new DetailJMController(HibernateUtil.getSessionFactory());
-                                        for (DetailJenisMerk djm : detailJMController.search("Id_merk", "KT3")) {
-                                    %><option value="<%= djm.getIdDetail() %>,<%= djm.getIdJenis() %>"><%= djm.getIdMerk().getNamaMerk() %></option>
-                                    <% }
-                                    %>
                                 </select></td>
                         </tr>
                         <tr>
