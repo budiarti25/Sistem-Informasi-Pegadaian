@@ -57,4 +57,9 @@ public class AngsuranController {
         Angsuran angsuran = new Angsuran();
         return this.dAO.getById(angsuranId);
     }
+    
+    public Object AutoId(){
+        Angsuran angsuran = new Angsuran();
+        return this.dAO.getAutoId();
+    }
 }

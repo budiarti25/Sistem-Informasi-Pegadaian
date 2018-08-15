@@ -53,4 +53,9 @@ public class JenisBarangController {
         JenisBarang jenisBarang = new JenisBarang();
         return this.dAO.getById(barangId);
     }
+    
+    public Object AutoId(){
+        JenisBarang jenisBarang = new JenisBarang();
+        return this.dAO.getAutoId();
+    }
 }

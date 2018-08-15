@@ -42,4 +42,8 @@ public class AngsuranDAO {
     public Object getById(String id){
         return this.fdao.getById(id);
     }
+    
+    public Object getAutoId(){
+        return this.fdao.getById("select concat('AN',LPAD(to_number(substr(max(id_angsuran),3,2))+1,1,'0')) from angsuran");
+    }
 }

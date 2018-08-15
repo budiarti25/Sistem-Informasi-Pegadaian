@@ -55,4 +55,9 @@ public class PengajuanController {
         Pengajuan pengajuan = new Pengajuan();
         return this.dAO.getById(pengajuanId);
     }
+    
+    public Object AutoId(){
+        Pengajuan pengajuan = new Pengajuan();
+        return this.dAO.getAutoId();
+    }
 }

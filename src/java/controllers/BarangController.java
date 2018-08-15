@@ -53,4 +53,9 @@ public class BarangController {
         Barang barang = new Barang();
         return this.dAO.getById(barangId);
     }
+    
+    public Object AutoId(){
+        Barang barang = new Barang();
+        return this.dAO.getAutoId();
+    }
 }

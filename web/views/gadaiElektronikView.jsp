@@ -46,15 +46,6 @@
                             <td>Merk Elektronik</td>
                             <td>:</td>
                             <td><select name="cbxMerk">
-                                    <%
-                                        JenisBarangController jbc1 = new JenisBarangController(HibernateUtil.getSessionFactory());
-                                        List<KategoriBarang> kb = jbc1.
-                                        
-                                        DetailJMController detailJMController = new DetailJMController(HibernateUtil.getSessionFactory());
-                                        for (DetailJenisMerk djm : detailJMController.search("Id_merk", "JN")) {
-                                    %><option value="<%= djm.getIdDetail() %>,<%= djm.getIdJenis() %>"><%= djm.getIdMerk().getNamaMerk() %></option>
-                                    <% }
-                                    %>
                                 </select></td>
                         </tr>
                         <tr>

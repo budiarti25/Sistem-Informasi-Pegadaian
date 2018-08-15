@@ -73,12 +73,12 @@
                     <td><input type="hidden" name="txtRole" id="selectRole" value="U" /></td>
                 </tr>
                 <tr>
-                    <td>Username</td>
+                    <td>USERNAME</td>
                     <td>:</td>
                     <td><input type="text" name="txtUsername" value="" /></td>
                 </tr>
                 <tr>
-                    <td>Password</td>
+                    <td>PASSWORD</td>
                     <td>:</td>
                     <td><input type="password" name="txtPassword" value="" /></td>
                 </tr>

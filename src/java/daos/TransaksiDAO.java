@@ -39,4 +39,8 @@ public class TransaksiDAO {
     public Object getById(String id){
         return this.fdao.getById(id);
     }
+    
+    public Object getAutoId(){
+        return this.fdao.getById("select concat('TR',LPAD(to_number(substr(max(id_transaksi),3,2))+1,1,'0')) from transaksi");
+    }
 }

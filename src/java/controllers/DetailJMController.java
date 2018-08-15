@@ -55,4 +55,9 @@ public class DetailJMController {
         DetailJenisMerk jenisMerk = new DetailJenisMerk();
         return this.dAO.getById(detailId);
     }
+    
+    public Object AutoId(){
+        DetailJenisMerk jenisMerk = new DetailJenisMerk();
+        return this.dAO.getAutoId();
+    }
 }
