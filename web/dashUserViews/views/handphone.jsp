@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="tools.HibernateUtil"%>
+<%@page import="entities.JenisBarang"%>
+<%@page import="controllers.JenisBarangController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -184,8 +187,16 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Jenis Gadget</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <select class="form-control" name="cbxJenis">
+                                                                        <option selected="0">Jenis </option>
+                                                                        <%
+                                                                            JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
+                                                                            for (JenisBarang jb : jbc.search("Id_kategori", "KT3")) {
+                                                                                %>
+                                                                        <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
+                                                                        <% }
+                                                                        %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
