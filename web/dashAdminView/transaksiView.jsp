@@ -1,9 +1,12 @@
 <%-- 
-    Document   : index
-    Created on : Aug 14, 2018, 6:26:38 AM
-    Author     : misbah alkhafadh
+    Document   : transaksi
+    Created on : Aug 15, 2018, 3:25:55 PM
+    Author     : budiarti
 --%>
 
+<%@page import="controllers.TransaksiController"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page import="entities.Transaksi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +21,8 @@
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
         <title>Sistem Informasi Pegadaian</title>
         <!-- Custom CSS -->
+        <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+        <link href="assets/libs/bootstrap/dist/css/dataTables.bootstrap4.min.css">
         <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="dist/css/style.min.css" rel="stylesheet">
@@ -175,7 +180,7 @@
                 <div class="page-breadcrumb">
                     <div class="row align-items-center">
                         <div class="col-5">
-                            <h4 class="page-title">Dashboard</h4>
+                            <h4 class="page-title">Transaksi</h4>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
@@ -195,54 +200,60 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                     <!-- ============================================================== -->
-                    <!-- Sales chart -->
+                    <!-- Start Page Content -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-md-flex align-items-center">
-                                        <div>
-                                            <h4 class="card-title">Sales Summary</h4>
-                                            <h5 class="card-subtitle">Overview of Latest Month</h5>
-                                        </div>
-                                        <div class="ml-auto d-flex no-block align-items-center">
-                                            <ul class="list-inline font-12 dl m-r-15 m-b-0">
-                                                <li class="list-inline-item text-info"><i class="fa fa-circle"></i> Iphone</li>
-                                                <li class="list-inline-item text-primary"><i class="fa fa-circle"></i> Ipad</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!-- column -->
-                                        <div class="col-lg-12">
-                                            <div class="campaign ct-charts"></div>
-                                        </div>
-                                        <!-- column -->
+                                    <h4 class="card-title">Data Transaksi</h4>
+                                    <div class="table-responsive">
+                                        <% TransaksiController tc = new TransaksiController(HibernateUtil.getSessionFactory()); %>
+                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID TRANSAKSI</th>
+                                                    <th>ID PENGAJUAN</th>
+                                                    <th>TANGGAL TRANSAKSI</th>
+                                                    <th>DANA CAIR</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <% int i = 1;
+                                                        for (Transaksi transaksi : tc.getAll()) {
+                                                    %>                
+                                                <tr>
+                                                    <td style="text-align: center"><%= i%></td>
+                                                    <td><%= transaksi.getIdTransaksi()%></td>
+                                                    <td><%= transaksi.getIdPengajuan()%></td>
+                                                    <td><%= transaksi.getTanggalTansaksi()%></td>
+                                                    <td><%= transaksi.getDanaCair()%></td>
+                                                    <td>
+                                                        <a href="=<%=transaksi.getIdTransaksi()%>">Edit</a>
+                                                    </td>
+                                                </tr>
+                                                <% i++;
+                                                    }
+                                                %>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Feeds</h4>
-                                    <div class="feed-widget">
-                                        <ul class="list-style-none feed-body m-0 p-b-20">
-                                            <li class="feed-item">
-                                                <div class="feed-icon bg-info"><i class="far fa-bell"></i></div> You have 4 pending tasks. <span class="ml-auto font-12 text-muted">Just Now</span></li>
-                                            <li class="feed-item">
-                                                <div class="feed-icon bg-success"><i class="ti-server"></i></div> Server #1 overloaded.<span class="ml-auto font-12 text-muted">2 Hours ago</span></li>
-                                            <li class="feed-item">
-                                                <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div> New order received.<span class="ml-auto font-12 text-muted">31 May</span></li>
-                                            <li class="feed-item">
-                                                <div class="feed-icon bg-danger"><i class="ti-user"></i></div> New user registered.<span class="ml-auto font-12 text-muted">30 May</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Right sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- .right-sidebar -->
+                    <!-- ============================================================== -->
+                    <!-- End Right sidebar -->
+                    <!-- ============================================================== -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Container fluid  -->
@@ -272,17 +283,14 @@
         <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
         <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="dist/js/app-style-switcher.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/jquery-3.3.1.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/dataTables.bootstrap4.min.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/jquery.dataTables.min.js"></script>
         <!--Wave Effects -->
         <script src="dist/js/waves.js"></script>
         <!--Menu sidebar -->
         <script src="dist/js/sidebarmenu.js"></script>
         <!--Custom JavaScript -->
         <script src="dist/js/custom.js"></script>
-        <!--This page JavaScript -->
-        <!--chartis chart-->
-        <script src="assets/libs/chartist/dist/chartist.min.js"></script>
-        <script src="assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-        <script src="dist/js/pages/dashboards/dashboard1.js"></script>
     </body>
-
 </html>

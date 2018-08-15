@@ -1,9 +1,15 @@
-<%@page import="entities.Akun"%>
-<%@page import="tools.HibernateUtil"%>
-<%@page import="controllers.AkunController"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
-<html lang="en">
+<%-- 
+    Document   : angsuranView
+    Created on : Aug 15, 2018, 4:10:12 PM
+    Author     : budiarti
+--%>
 
+<%@page import="entities.Angsuran"%>
+<%@page import="controllers.AngsuranController"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -174,7 +180,7 @@
                 <div class="page-breadcrumb">
                     <div class="row align-items-center">
                         <div class="col-5">
-                            <h4 class="page-title">Member</h4>
+                            <h4 class="page-title">Angsuran</h4>
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
@@ -200,49 +206,39 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Data Member</h4>
+                                    <h4 class="card-title">Data Angsuran</h4>
                                     <div class="table-responsive">
-                                        <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory()); %>
+                                        <% AngsuranController ac = new AngsuranController(HibernateUtil.getSessionFactory()); %>
                                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th style="text-align: center">No</th>
-                                                    <th>NIK</th>
-                                                    <th>NAMA</th>
-                                                    <th>JENIS KELAMIN</th>
-                                                    <th>ALAMAT</th>
-                                                    <th>RT/RW</th>
-                                                    <th>DESA</th>
-                                                    <th>KECAMATAN</th>
-                                                    <th>KABUPATEN</th>
-                                                    <th>PROVINSI</th>
-                                                    <th>ROLE</th>
+                                                    <th>ID ANGSURAN</th>
+                                                    <th>ID TRANSAKSI</th>
+                                                    <th>TANGGAL BAYAR</th>
+                                                    <th>NOMINAL ANGSURAN</th>
+                                                    <th>STATUS</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                <% int i = 1;
-                                                for (Akun akun : ac.getAll()) {
-                                                %>
+                                                    <% int i = 1;
+                                                        for (Angsuran angsuran : ac.getAll()) {
+                                                    %>                
                                                 <tr>
-                                                    <td style="text-align: center"><%= i %></td>
-                                                    <td><%= akun.getNik() %></td>
-                                                    <td><%= akun.getNama() %></td>
-                                                    <td><%= akun.getJenisKelamin() %></td>
-                                                    <td><%= akun.getAlamat() %></td>
-                                                    <td><%= akun.getRtRw() %></td>
-                                                    <td><%= akun.getDesa() %></td>
-                                                    <td><%= akun.getKecamatan() %></td>
-                                                    <td><%= akun.getKabupaten() %></td>
-                                                    <td><%= akun.getProvinsi() %></td>
-                                                    <td><%= akun.getIdRole().getNamaRole() %></td>
+                                                    <td style="text-align: center"><%= i%></td>
+                                                    <td><%= angsuran.getIdAngsuran()%></td>
+                                                    <td><%= angsuran.getIdTransaksi()%></td>
+                                                    <td><%= angsuran.getTanggalBayar()%></td>
+                                                    <td><%= angsuran.getNominalAngsuran()%></td>
+                                                    <td><%= angsuran.getStatus()%></td>
                                                     <td>
-                                                        <a href="=<%=akun.getNik() %>">Edit</a>
+                                                        <a href="=<%=angsuran.getIdAngsuran()%>">Edit</a>
                                                     </td>
                                                 </tr>
                                                 <% i++;
-                                                }
+                                                    }
                                                 %>
                                             </tbody>
                                         </table>
@@ -300,5 +296,4 @@
         <!--Custom JavaScript -->
         <script src="dist/js/custom.js"></script>
     </body>
-
 </html>

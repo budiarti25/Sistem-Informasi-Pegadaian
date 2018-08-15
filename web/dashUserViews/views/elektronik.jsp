@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.JenisBarang"%>
+<%@page import="controllers.JenisBarangController"%>
+<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -161,13 +164,13 @@
                                                 <ul class="nav nav-tabs" data-tabs="tabs">
                                                     <li class="nav-item col-md-6">
                                                         <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
-                                                             Langkah 1
+                                                            Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-6">
                                                         <a class="nav-link" href="#settings" data-toggle="tab" style="text-align: center">
-                                                             Langkah 2
+                                                            Langkah 2
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -184,8 +187,17 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Jenis Elektronik</label>
-                                                                    <input type="text" class="form-control">
+                                                                    
+                                                                    <select class="form-control" name="cbxJenis">
+                                                                        <option selected="0">Jenis Elektronik</option>
+                                                                        <%
+                                                                            JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
+                                                                            for (JenisBarang jb : jbc.search("Id_kategori", "KT3")) {
+                                                                                %>
+                                                                        <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
+                                                                        <% }
+                                                                        %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -223,7 +235,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top','center')" style="background: #00bcd4">Simpan</button>
+                                                        <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top', 'center')" style="background: #00bcd4">Simpan</button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -254,7 +266,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top','center')" style="background: #00bcd4">Pengajuan</button>
+                                                        <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top', 'center')" style="background: #00bcd4">Pengajuan</button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -296,11 +308,11 @@
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-            $(document).ready(function () {
-            // Javascript method's body can be found in assets/js/demos.js
-            md.initDashboardPageCharts();
+                                $(document).ready(function () {
+                                    // Javascript method's body can be found in assets/js/demos.js
+                                    md.initDashboardPageCharts();
 
-            });
+                                });
         </script>
     </body>
 </html>
