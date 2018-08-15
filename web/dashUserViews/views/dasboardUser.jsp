@@ -1,6 +1,6 @@
 <%-- 
-    Document   : laptop
-    Created on : Aug 15, 2018, 8:33:23 AM
+    Document   : dashboardUser
+    Created on : Aug 15, 2018, 8:29:07 AM
     Author     : misbah alkhafadh
 --%>
 
@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            Pengajuan Gadai Laptop
+            Dashboard User
         </title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
@@ -24,12 +24,12 @@
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
-    <body>
+    <body class="">
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
                   Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-  
+        
                   Tip 2: you can also add an image using data-image tag
                 -->
                 <div class="logo">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
-                        <li class="nav-item">
+                        <li class="nav-item active  ">
                             <a class="nav-link" href="dasboardUser.jsp">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
@@ -69,7 +69,7 @@
                                 <p>Handphone</p>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="laptop.jsp">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Laptop</p>
@@ -95,7 +95,7 @@
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#">Pengajuan Gadai Laptop</a>
+                            <a class="navbar-brand" href="#pablo">Dashboard</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
@@ -152,122 +152,14 @@
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
+                            <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-header card-header-tabs card-header-primary" style="background: #00bcd4">
-                                        <div class="nav-tabs-navigation">
-                                            <div class="nav-tabs-wrapper">
-                                                <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
-                                                <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
-                                                             Langkah 1
-                                                            <div class="ripple-container"></div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link" href="#settings" data-toggle="tab" style="text-align: center">
-                                                            Langkah 2
-                                                            <div class="ripple-container"></div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                    <div class="card-header card-header-primary" style="background: #00bcd4">
+                                        <h4 class="card-title">Dashboard User</h4>
+                                        <p class="card-category"></p>
                                     </div>
-
                                     <div class="card-body">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="profile">
-                                                <div class="card-body">
-                                                    <form>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Jenis Laptop</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Merk</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tipe</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Kapasitas Hardisk</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tahun Pembelian</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Harga Jual</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Upload Foto</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                            </div>
 
-                                            <div class="tab-pane" id="settings">
-                                                <div class="card-body">
-                                                    <form>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -275,6 +167,7 @@
                     </div>
                 </div>
 
+                <!--Footer-->
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="copyright">
@@ -304,11 +197,12 @@
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-                      $(document).ready(function () {
-                          // Javascript method's body can be found in assets/js/demos.js
-                          md.initDashboardPageCharts();
+                        $(document).ready(function () {
+                            // Javascript method's body can be found in assets/js/demos.js
+                            md.initDashboardPageCharts();
 
-                      });
+                        });
         </script>
+
     </body>
 </html>
