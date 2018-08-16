@@ -164,7 +164,7 @@
                                                 <ul class="nav nav-tabs" data-tabs="tabs">
                                                     <li class="nav-item col-md-6">
                                                         <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
-                                                             Langkah 1
+                                                            Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -192,7 +192,7 @@
                                                                         <%
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT1")) {
-                                                                                %>
+                                                                        %>
                                                                         <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
                                                                         <% }
                                                                         %>
@@ -220,12 +220,26 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- Upload  -->
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Upload Foto</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
+                                                            <div id="file-upload-form" class="uploader">
+                                                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+                                                                <label for="file-upload" id="file-drag">
+                                                                    <img id="file-image" src="#" alt="Preview" class="hidden">
+                                                                    <div id="start">
+                                                                        <i class="material-icons" aria-hidden="true">cloud_upload</i>
+                                                                        <div>Select a file or drag here</div>
+                                                                        <div id="notimage" class="hidden">Please select an image</div>
+                                                                        <span id="file-upload-btn" class="btn btn-primary">Upload Foto</span>
+                                                                    </div>
+                                                                    <div id="response" class="hidden">
+                                                                        <div id="messages"></div>
+                                                                        <progress class="progress" id="file-progress" value="0">
+                                                                            <span>0</span>%
+                                                                        </progress>
+                                                                    </div>
+                                                                </label>
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
@@ -298,14 +312,15 @@
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+        <script src="../assets/js/file-upload.js"></script>
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-                      $(document).ready(function () {
-                          // Javascript method's body can be found in assets/js/demos.js
-                          md.initDashboardPageCharts();
+                                $(document).ready(function () {
+                                    // Javascript method's body can be found in assets/js/demos.js
+                                    md.initDashboardPageCharts();
 
-                      });
+                                });
         </script>
     </body>
 </html>

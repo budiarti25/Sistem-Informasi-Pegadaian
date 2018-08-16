@@ -158,16 +158,22 @@
                                         <div class="nav-tabs-navigation">
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
-                                                <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
-                                                            Langkah 1
+                                                <ul class="nav nav-tabs" data-tabs="tabs" style="text-align: center">
+                                                    <li class="nav-item col-md-4" >
+                                                        <a class="nav-link active" href="step-1" data-toggle="tab" >
+                                                            <h4 class="nav-link">Langkah 1</h4>
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link" href="#settings" data-toggle="tab" style="text-align: center">
-                                                            Langkah 2
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link disabled" href="step-2" data-toggle="tab" >
+                                                            <h4 class="nav-link">Langkah 2</h4>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link disabled" href="step-3" data-toggle="tab">
+                                                            <h4 class="nav-link">Langkah 3</h4>
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -178,7 +184,7 @@
 
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="profile">
+                                            <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
                                                     <form>
                                                         <div class="row">
@@ -239,13 +245,12 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
-                                                        <div class="clearfix"></div>
+                                                        <button id="activate-step-2" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
                                                     </form>
                                                 </div>
                                             </div>
 
-                                            <div class="tab-pane" id="settings">
+                                            <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
                                                     <form>
                                                         <div class="row">
@@ -270,8 +275,15 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
-                                                        <div class="clearfix"></div>
+                                                        <button type="submit" id="activate-step-3" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="tab-pane" id="step-3">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <p>success...........</p>
                                                     </form>
                                                 </div>
                                             </div>
@@ -309,6 +321,7 @@
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+        <script src="../assets/js/file-upload.js"></script>
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
@@ -317,6 +330,9 @@
                                     md.initDashboardPageCharts();
 
                                 });
+        </script>
+        <script type="text/javascript">
+
         </script>
     </body>
 </html>

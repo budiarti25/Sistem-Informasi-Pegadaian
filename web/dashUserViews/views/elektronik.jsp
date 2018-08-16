@@ -162,15 +162,22 @@
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
                                                 <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link active" href="#step-1" data-toggle="tab" style="text-align: center">
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
+                                                        <p class="nav-link"></p>
                                                     </li>
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link" href="#settings" data-toggle="tab" style="text-align: center">
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link" href="#step-2" data-toggle="tab" style="text-align: center">
                                                             Langkah 2
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link" href="#step-3" data-toggle="tab" style="text-align: center">
+                                                            Langkah 3
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -187,13 +194,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    
+
                                                                     <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis Elektronik</option>
                                                                         <%
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT3")) {
-                                                                                %>
+                                                                        %>
                                                                         <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
                                                                         <% }
                                                                         %>
@@ -228,14 +235,30 @@
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Upload Foto</label>
-                                                                    <input type="text" class="form-control">
-                                                                </div>
+                                                        </div>
+                                                        <!-- Upload  -->
+                                                        <div class="row">
+                                                            <div id="file-upload-form" class="uploader">
+                                                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+                                                                <label for="file-upload" id="file-drag">
+                                                                    <img id="file-image" src="#" alt="Preview" class="hidden">
+                                                                    <div id="start">
+                                                                        <i class="material-icons" aria-hidden="true">cloud_upload</i>
+                                                                        <div>Select a file or drag here</div>
+                                                                        <div id="notimage" class="hidden">Please select an image</div>
+                                                                        <span id="file-upload-btn" class="btn btn-primary">Upload Foto</span>
+                                                                    </div>
+                                                                    <div id="response" class="hidden">
+                                                                        <div id="messages"></div>
+                                                                        <progress class="progress" id="file-progress" value="0">
+                                                                            <span>0</span>%
+                                                                        </progress>
+                                                                    </div>
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top', 'center')" style="background: #00bcd4">Simpan</button>
+                                                        <button type="" class="btn btn-primary pull-right" onclick="demo.showNotification('top', 'center')" style="background: #00bcd4">Simpan</button>
                                                         <div class="clearfix"></div>
                                                     </form>
                                                 </div>
@@ -305,6 +328,7 @@
         <script src="../assets/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+        <script src="../assets/js/file-upload.js"></script>
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
