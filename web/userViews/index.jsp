@@ -71,48 +71,7 @@
             </ul>
           </li> -->
           <li><a href="#contact">Contact</a></li>
-          <li><a href="loginView.jsp" class="btn btn-success" style="padding-top: 7px">Login <i class="ion-android-lock"></i></a>
-            <!-- Modal -->
-<!--            <a class="btn btn-outline-success" href="" data-toggle="modal" data-target="#modalRegisterForm" >Login</a>
-            
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold">Add Data</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <div class="modal-body mx-3">
-                            <div class="md-form mb-5">
-                                <i class="fa fa-user prefix grey-text"></i>
-                                <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-                                <input type="text" id="orangeForm-name" class="form-control validate">
-
-                            </div>
-                            <div class="md-form mb-5">
-                                <i class="fa fa-book-open"></i>
-                                <label data-error="wrong" data-success="right" for="orangeForm-name">Nama Karyawan</label>
-                                <input type="text" id="orangeForm-name" class="form-control validate">
-
-                            </div>
-                            <div class="md-form mb-5">
-                                <i class="fa fa-phone"></i>
-                                <label data-error="wrong" data-success="right" for="orangeForm-name">Telepon</label>
-                                <input type="text" id="orangeForm-name" class="form-control validate">
-
-                            </div>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-                            <button class="btn btn-deep-orange">Add</button>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <!--End Modal-->
-          </li>
+          <li><a href="loginView.jsp" class="btn btn-success" style="padding-top: 7px">Login <i class="ion-android-lock"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>

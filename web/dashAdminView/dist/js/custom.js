@@ -38,3 +38,27 @@ $(document).ready(function() {
 } );
 
 });
+
+//datatable
+$(document).ready(function () {
+        $('#example').DataTable({
+            "processing": true,
+            "info": true,
+            "stateSave": true,
+            data: data,
+            "columns": [
+                { "data": "name" },
+                { "data": "position" },
+                { "data": "office" },
+                { "data": "extn" },
+                { "data": "start_date" },
+                { "data": "salary" },
+                {
+                    "data": "Inquiry", "bSearchable": false, "bSortable": false, "sWidth": "40px",
+                    "data": function (data) {
+                        return '<button class="btn btn-danger" type="button">' + data.name + 'Delete</button>'
+                    }
+                }
+            ]
+        });
+    });

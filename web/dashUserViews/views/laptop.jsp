@@ -161,19 +161,19 @@
                                                 <ul class="nav nav-tabs" data-tabs="tabs" style="text-align: center">
                                                     <li class="nav-item col-md-4" >
                                                         <a class="nav-link active" href="step-1" data-toggle="tab" >
-                                                            <h4 class="nav-link">Langkah 1</h4>
+                                                            Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-4">
                                                         <a class="nav-link disabled" href="step-2" data-toggle="tab" >
-                                                            <h4 class="nav-link">Langkah 2</h4>
+                                                           Langkah 2
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-4">
                                                         <a class="nav-link disabled" href="step-3" data-toggle="tab">
-                                                            <h4 class="nav-link">Langkah 3</h4>
+                                                            Langkah 3
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>

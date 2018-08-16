@@ -1,12 +1,9 @@
 <%-- 
-    Document   : barangView
-    Created on : Aug 15, 2018, 4:11:45 PM
-    Author     : budiarti
+    Document   : coba
+    Created on : Aug 16, 2018, 12:54:01 PM
+    Author     : misbah alkhafadh
 --%>
 
-<%@page import="controllers.BarangController"%>
-<%@page import="entities.Barang"%>
-<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +23,6 @@
         <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="dist/css/style.min.css" rel="stylesheet">
-
     </head>
 
     <body>
@@ -190,163 +186,158 @@
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Container fluid  -->
-                <!-- ============================================================== -->
-                <div class="container-fluid">
-                    <!-- ============================================================== -->
-                    <!-- Start Page Content -->
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Data Barang</h4>
-                                    <div class="table-responsive">
-                                        <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory()); %>
-                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th style="text-align: center">No</th>
-                                                    <th>ID BARANG</th>
-                                                    <th>ID DETAIL</th>
-                                                    <th>HARGA PERKIRAAN</th>
-                                                    <th>FOTO</th>
-                                                    <th>DESKRIPSI</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <% int i = 1;
-                                                        for (Barang barang : bc.getAll()) {
-                                                    %>                
-                                                <tr>
-                                                    <td style="text-align: center"><%= i%></td>
-                                                    <td><%= barang.getIdBarang()%></td>
-                                                    <td><%= barang.getIdDetail()%></td>
-                                                    <td><%= barang.getHargaPerkiraan()%></td>
-                                                    <td><%= barang.getFoto()%></td>
-                                                    <td><%= barang.getDeskripsi()%></td>
-                                                    <td>
-                                                        <a href="=<%=barang.getIdBarang()%>" class="btn btn-xs btn-primary">Edit</a>
-                                                        <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                                            <button class="ti-user m-r-5 m-l-5" data-title="Edit" data-toggle="modal" data-target="#edit">Edit</button>
-                                                        </p>
-                                                        <p data-placement="top" data-toggle="tooltip" title="Delete">
-                                                            <button class="ti-user m-r-5 m-l-5" data-title="Delete" data-toggle="modal" data-target="#delete">Delete</button>
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                                <% i++;
-                                                    }
-                                                %>
-                                            </tbody>
-                                        </table>
-                                        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <input class="form-control " type="text" placeholder="Tiger Nixon">
-                                                        </div>
-                                                        <div class="form-group">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Barang</h4>
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
 
-                                                            <input class="form-control " type="text" placeholder="System Architect">
-                                                        </div>
-                                                        <div class="form-group">
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </tfoot>
 
-
-                                                            <input class="form-control " type="text" placeholder="Edinburgh">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer ">
-                                                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-                                                    </div>
-                                                </div>
-                                                <!-- /.modal-content --> 
-                                            </div>
-                                            <!-- /.modal-dialog --> 
-                                        </div>
-
-                                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
-                                                    </div>
-                                                    <div class="modal-footer ">
-                                                        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                                                    </div>
-                                                </div>
-                                                <!-- /.modal-content --> 
-                                            </div>
-                                            <!-- /.modal-dialog --> 
-                                        </div>
-                                    </div>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
+                                                <td>
+                                                    <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                                        <button class="ti-user m-r-5 m-l-5" data-title="Edit" data-toggle="modal" data-target="#edit" >
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </button>
+                                                    </p>
+                                                </td>
+                                                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="ti-user m-r-5 m-l-5" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
+                                                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                                                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+
+                        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input class="form-control " type="text" placeholder="Tiger Nixon">
+                                        </div>
+                                        <div class="form-group">
+
+                                            <input class="form-control " type="text" placeholder="System Architect">
+                                        </div>
+                                        <div class="form-group">
+
+
+                                            <input class="form-control " type="text" placeholder="Edinburgh">
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer ">
+                                        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content --> 
+                            </div>
+                            <!-- /.modal-dialog --> 
+                        </div>
+
+                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+                                    </div>
+                                    <div class="modal-footer ">
+                                        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content --> 
+                            </div>
+                            <!-- /.modal-dialog --> 
+                        </div>
+
+                        <!-- ============================================================== -->
+                        <!-- footer -->
+                        <!-- ============================================================== -->
+                        <footer class="footer text-center">
+                            All Rights Reserved by Pegadaian. Designed and Developed by <a href="#">Bootcamp17Group</a>.
+                        </footer>
+                        <!-- ============================================================== -->
+                        <!-- End footer -->
+                        <!-- ============================================================== -->
                     </div>
                     <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Right sidebar -->
-                    <!-- ============================================================== -->
-                    <!-- .right-sidebar -->
-                    <!-- ============================================================== -->
-                    <!-- End Right sidebar -->
+                    <!-- End Page wrapper  -->
                     <!-- ============================================================== -->
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Container fluid  -->
+                <!-- End Wrapper -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- footer -->
+                <!-- All Jquery -->
                 <!-- ============================================================== -->
-                <footer class="footer text-center">
-                    All Rights Reserved by Pegadaian. Designed and Developed by <a href="#">Bootcamp17Group</a>.
-                </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
-        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-        <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="dist/js/app-style-switcher.js"></script>
-        <script src="assets/libs/bootstrap/dist/js/jquery-3.3.1.js"></script>
-        <script src="assets/libs/bootstrap/dist/js/dataTables.bootstrap4.min.js"></script>
-        <script src="assets/libs/bootstrap/dist/js/jquery.dataTables.min.js"></script>
-        <!--Wave Effects -->
-        <script src="dist/js/waves.js"></script>
-        <!--Menu sidebar -->
-        <script src="dist/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="dist/js/custom.js"></script>
-    </body>
-</html>
+                <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+                <!-- Bootstrap tether Core JavaScript -->
+                <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script src="dist/js/app-style-switcher.js"></script>
+                <script src="assets/libs/bootstrap/dist/js/jquery-3.3.1.js"></script>
+                <script src="assets/libs/bootstrap/dist/js/dataTables.bootstrap4.min.js"></script>
+                <script src="assets/libs/bootstrap/dist/js/jquery.dataTables.min.js"></script>
+                <!--Wave Effects -->
+                <script src="dist/js/waves.js"></script>
+                <!--Menu sidebar -->
+                <script src="dist/js/sidebarmenu.js"></script>
+                <!--Custom JavaScript -->
+                <script src="dist/js/custom.js"></script>
+                </body>
+                </html>
