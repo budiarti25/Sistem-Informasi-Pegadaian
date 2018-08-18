@@ -213,7 +213,7 @@
                                                     <th>HARGA PERKIRAAN</th>
                                                     <th>FOTO</th>
                                                     <th>DESKRIPSI</th>
-                                                    <th>Action</th>
+                                                    <th>ACTION</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -255,14 +255,10 @@
                                                             <input class="form-control " type="text" placeholder="Tiger Nixon">
                                                         </div>
                                                         <div class="form-group">
-
                                                             <input class="form-control " type="text" placeholder="System Architect">
                                                         </div>
                                                         <div class="form-group">
-
-
                                                             <input class="form-control " type="text" placeholder="Edinburgh">
-
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer ">
@@ -282,9 +278,7 @@
                                                         <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
                                                     </div>
                                                     <div class="modal-body">
-
                                                         <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-
                                                     </div>
                                                     <div class="modal-footer ">
                                                         <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
