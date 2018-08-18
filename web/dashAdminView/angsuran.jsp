@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Angsuran"%>
+<%@page import="controllers.AngsuranController"%>
+<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,6 +96,7 @@
                         <!-- Advanced Tables -->                                
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <% AngsuranController ac = new AngsuranController(HibernateUtil.getSessionFactory());%>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -105,36 +109,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="center">X</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td class="center">C</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>                                        
-                                        </tr>
+                                        <% int i = 1;
+                                            for (Angsuran angsuran : ac.getAll()) {
+                                        %>  
                                         <tr class="odd gradeA">
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5.5</td>
+                                            <td><%= angsuran.getIdAngsuran()%></td>
+                                            <td><%= angsuran.getIdTransaksi()%></td>
+                                            <td><%= angsuran.getTanggalBayar()%></td>
+                                            <td><%= angsuran.getNominalAngsuran()%></td>
+                                            <td><%= angsuran.getStatus()%></td>
                                             <td>
                                                 <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
                                             </td>
                                         </tr>
+                                        <% i++;
+                                            }
+                                        %>
                                     </tbody>
                                 </table>
                                 <!--modal Insert-->

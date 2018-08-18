@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.BarangController"%>
+<%@page import="entities.Barang"%>
+<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,6 +96,7 @@
                         <!-- Advanced Tables -->                                
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());%>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -104,27 +108,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="center">X</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td class="center">C</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                        </tr>
+                                        <% int i = 1;
+                                            for (Barang barang : bc.getAll()) {
+                                        %>  
                                         <tr class="odd gradeA">
-                                            <td class="center">A</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
+                                            <td><%= barang.getFoto()%></td>
+                                            <td><%= barang.getIdBarang()%></td>
+                                            <td><%= barang.getIdDetail()%></td>
+                                            <td><%= barang.getHargaPerkiraan()%></td>
+                                            <td><%= barang.getDeskripsi()%></td>
                                         </tr>
+                                        <% i++;
+                                            }
+                                        %>
                                     </tbody>
                                 </table>
                             </div>

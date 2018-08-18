@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Akun"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page import="controllers.AkunController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,6 +96,7 @@
                         <!-- Advanced Tables -->                                
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory());%>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -109,47 +113,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td class="center">C</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>                                        </tr>
+                                        <% int i = 1;
+                                            for (Akun akun : ac.getAll()) {
+                                        %>
                                         <tr class="odd gradeA">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5.5</td>
-                                            <td class="center">A</td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
+                                            <td><%= akun.getNik()%></td>
+                                            <td><%= akun.getNama()%></td>
+                                            <td><%= akun.getJenisKelamin()%></td>
+                                            <td><%= akun.getAlamat()%></td>
+                                            <td><%= akun.getRtRw()%></td>
+                                            <td><%= akun.getDesa()%></td>
+                                            <td><%= akun.getKecamatan()%></td>
+                                            <td><%= akun.getKabupaten()%></td>
+                                            <td><%= akun.getProvinsi()%></td>
                                             <td>
                                                 <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
                                             </td>
                                         </tr>
+                                        <% i++;
+                                            }
+                                        %>
                                     </tbody>
                                 </table>
                                 <!--modal Insert-->

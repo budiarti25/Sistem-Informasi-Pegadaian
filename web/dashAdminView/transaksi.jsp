@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.TransaksiController"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page import="entities.Transaksi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -93,6 +96,7 @@
                         <!-- Advanced Tables -->                                
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <% TransaksiController tc = new TransaksiController(HibernateUtil.getSessionFactory());%>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -104,32 +108,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td>
-                                                <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
-                                            </td>                                        </tr>
+                                        <% int i = 1;
+                                            for (Transaksi transaksi : tc.getAll()) {
+                                        %> 
                                         <tr class="odd gradeA">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
+                                            <td><%= transaksi.getIdTransaksi()%></td>
+                                            <td><%= transaksi.getIdPengajuan()%></td>
+                                            <td><%= transaksi.getTanggalTansaksi()%></td>
+                                            <td><%= transaksi.getDanaCair()%></td>
                                             <td>
                                                 <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
                                             </td>
                                         </tr>
+                                        <% i++;
+                                            }
+                                        %>
                                     </tbody>
                                 </table>
                                 <!--modal Insert-->
