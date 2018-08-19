@@ -160,13 +160,13 @@
                                     <div class="card-body">
                                         <form>
                                             <div class="row">
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Company (disabled)</label>
-                                                        <input type="text" class="form-control" disabled>
+                                                        <label class="bmd-label-floating">NIK</label>
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Username</label>
                                                         <input type="text" class="form-control">
@@ -174,60 +174,77 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Email address</label>
-                                                        <input type="email" class="form-control">
+                                                        <label class="bmd-label-floating">Password</label>
+                                                        <input type="password" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Fist Name</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="bmd-label-floating">Nama Depan</label>
+                                                        <input type="text" name="nama" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Last Name</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="bmd-label-floating">Nama Belakang</label>
+                                                        <input type="text" name="nama" class="form-control">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Adress</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">City</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Country</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Postal Code</label>
-                                                        <input type="text" class="form-control">
+                                                <div class="col-md-2">
+                                                    <div class="form-group label-floating">
+                                                        <select name="jenis_kelamin" class="form-control">
+                                                            <option disabled="" selected="">Jenis Kelamin</option>
+                                                            <option value="laki-laki">Laki-laki</option>
+                                                            <option value="perempuan">Perempuan</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>About Me</label>
-                                                        <div class="form-group">
-                                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                                            <textarea class="form-control" rows="5"></textarea>
+                                                        <label>Alamat Lengkap</label>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Alamat</label>
+                                                                    <input type="text" name="alamat" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Desa</label>
+                                                                    <input type="text" name="desa" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">RT/RW</label>
+                                                                    <input type="text" name="rt_rw" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Kecamatan</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Kabupaten</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="bmd-label-floating">Provinsi</label>
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,11 +287,11 @@
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-                      $(document).ready(function () {
-                          // Javascript method's body can be found in assets/js/demos.js
-                          md.initDashboardPageCharts();
+                                $(document).ready(function () {
+                                    // Javascript method's body can be found in assets/js/demos.js
+                                    md.initDashboardPageCharts();
 
-                      });
+                                });
         </script>
     </body>
 </html>

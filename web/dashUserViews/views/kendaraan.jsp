@@ -188,7 +188,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <select class="form-control" name="cbxJenis">
-                                                                        <option selected="0">Jenis Kendaraan</option>
+                                                                        <option disabled="" selected="">Jenis Kendaraan</option>
                                                                         <%
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT4")) {
