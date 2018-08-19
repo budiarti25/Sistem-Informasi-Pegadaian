@@ -77,10 +77,83 @@
                     <!-- /. ROW  -->
                     <hr />
 
+                    <div class="row">
+                        <form role="form">
+                            <div class="col-md-12">
+                                <div class="form-group col-md-4" style="text-align: right">
+                                    <label>Nama Lengkap</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="nama" placeholder="Nama Depan"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" name="nama" placeholder="Nama Belakang"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group col-md-4" style="text-align: right">
+                                    <label>Jenis Kelamin</label>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <div class="radio">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Laki-laki
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="radio">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Perempuan
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group col-md-4" style="text-align: right">
+                                    <label>Alamat Lengkap</label>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" name="alamat" placeholder="Jalan/dusun"/>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="text"class="form-control" name="rt_rw" placeholder="RT/RW"/>
+                                </div>
+                                <div class="form-group col-md-4"></div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="desa" placeholder="Desa"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text"class="form-control" name="kecamatan" placeholder="Kecamatan"/>
+                                </div>
+                                <div class="form-group col-md-4"></div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" name="kabupaten" placeholder="Kabupaten"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text"class="form-control" name="provinsi" placeholder="Provinsi"/>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group col-md-4" style="text-align: right">
+                                    <label>Account</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="email" class="form-control" name="email" placeholder="Email"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="password" class="form-control" name="password" placeholder="Password"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <!-- /. PAGE INNER  -->
             </div>
-            <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
         </div>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
