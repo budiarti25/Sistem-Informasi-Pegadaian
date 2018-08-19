@@ -13,11 +13,17 @@ import controllers.AkunController;
  */
 public class MyTester {
     public static void main(String[] args) {
-        System.out.println(HibernateUtil.getSessionFactory());
+//        System.out.println(HibernateUtil.getSessionFactory());
 //        System.out.println("Berhasil");
         
         AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
         //System.out.println(ac.saveOrEdit("3312227101870001", "Dyah Wulandari", 'P', "Buling", "012/005", "Bubakan", "Girimarto", "Wonogiri", "Jawa Tengah", 'U')); 
-                
+          System.out.println(BCrypt.hashpw("dyah31", BCrypt.gensalt(12)));
+          System.out.println(BCrypt.checkpw("dyah31", 
+                  BCrypt.hashpw("dyah31", BCrypt.gensalt(12))));
+//        if(ac.login("username", "wulan.dyah@gmail.com", "dyah31")){
+//            System.out.println("Berhasil");
+//        }else
+//            System.out.println("gagal");
     }
 }

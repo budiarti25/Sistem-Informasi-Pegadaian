@@ -16,5 +16,5 @@ public interface InterfaceDAO {
     public boolean delete(String id);
     public List<Object> getData(String query);
     public Object getById(String query);
-    public String AutoId(String query);
+    public Object AutoId(String query);
 }

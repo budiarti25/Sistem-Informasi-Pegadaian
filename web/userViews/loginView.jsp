@@ -26,7 +26,7 @@
       <div class="row">
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
-               <form action="" method="post" name="login">
+               <form action="../loginServlet" method="Post" name="login">
                   <div class="form-group">
                      <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Username">
                   </div>

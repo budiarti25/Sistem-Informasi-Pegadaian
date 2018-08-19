@@ -44,6 +44,6 @@ public class BarangDAO {
     }
     
     public Object getAutoId(){
-        return this.fdao.getById("select concat('BR',LPAD(to_number(substr(max(id_barang),3,2))+1,1,'0')) from barang");
+        return this.fdao.getById("select concat('BR',LPAD(to_number(substr(max(id_barang),3,3))+1,1,'0')) from barang");
     }
 }

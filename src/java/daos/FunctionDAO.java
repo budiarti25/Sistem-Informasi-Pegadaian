@@ -108,14 +108,14 @@ public class FunctionDAO implements InterfaceDAO{
     }
 
     @Override
-    public String AutoId(String query) {
+    public Object AutoId(String query) {
+        Object data = new Object();
         try {
             this.session = this.factory.openSession();
             this.transaction = this.session.beginTransaction();
+            data = this.session.createQuery(query)
+                    .uniqueResult();
             this.transaction.commit();
-//            while (rs.next()) {
-//                return rs.getString(1);
-//            }
         } catch (HibernateException e) {
             e.printStackTrace();
             if (this.transaction != null) {
@@ -124,7 +124,7 @@ public class FunctionDAO implements InterfaceDAO{
         } finally {
             this.session.close();
         }
-        return null;
+        return data;
     }
     
     

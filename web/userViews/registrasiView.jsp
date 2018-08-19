@@ -33,8 +33,11 @@
          <div class="col-md-4 mx-auto">
             <div class="myform form">
                 <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory()); %>
-               <form action="" method="post" name="login">
+               <form action="../regestrasiServlet" method="GET" name="login">
                   <div class="form-group">
+                     <input type="text" name="txtNIK"  class="form-control my-input" id="name" placeholder="NIK">
+                  </div>
+                   <div class="form-group">
                      <input type="text" name="txtNama"  class="form-control my-input" id="name" placeholder="Name">
                   </div>
                   <div class="form-group">

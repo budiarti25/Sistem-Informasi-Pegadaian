@@ -37,6 +37,10 @@ public class AkunDAO {
         return this.fdao.getData("FROM Akun WHERE "+category+ " LIKE '%"+data+"%'");
     }
     
+    public List<Object> search2(String category, String category1, String data1, String data){
+        return this.fdao.getData("FROM Akun WHERE "+category1+ " LIKE '%"+data+"%'");
+    }
+    
     public Object getById(String id){
         return this.fdao.getById(id);
     }

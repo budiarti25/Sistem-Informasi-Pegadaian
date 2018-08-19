@@ -11,6 +11,7 @@ import entities.Role;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
+import tools.BCrypt;
 
 /**
  *
@@ -52,5 +53,15 @@ public class AkunController {
     public Object findByID(String nik){
         Akun akun = new Akun();
         return this.dAO.getById(nik);
+    }
+    
+    public boolean login(String category, String category1, String username, String password, String roleId){
+        Akun akun = (Akun) this.dAO.search2(category, category1, username, roleId).get(0);
+        return BCrypt.checkpw(password, akun.getPassword());
+    }
+    
+    public Object findRole(String category, String idRole){
+        Akun akun = (Akun) this.dAO.search(category, idRole).get(0);
+        return akun;
     }
 }
