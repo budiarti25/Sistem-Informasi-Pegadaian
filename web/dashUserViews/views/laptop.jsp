@@ -198,7 +198,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tipe</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -206,13 +206,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Kapasitas Hardisk</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tahun Pembelian</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -220,14 +220,14 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Harga Jual</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <!-- Upload  -->
                                                         <div class="row">
                                                             <div id="file-upload-form" class="uploader">
-                                                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                                                                <input id="file-upload" type="file" name="foto" accept="image/*" />
 
                                                                 <label for="file-upload" id="file-drag">
                                                                     <img id="file-image" src="#" alt="Preview" class="hidden">

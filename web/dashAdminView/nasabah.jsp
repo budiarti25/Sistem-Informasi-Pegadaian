@@ -145,43 +145,40 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="NIK">
+                                                    <input class="form-control " name="nik" type="text" placeholder="NIK">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Nama Lengkap">
+                                                    <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Jenis Kelamin">
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <div class="radio col-lg-6">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Laki-Laki
-                                                        </label>
+                                                    <div class="form-group col-md-3">
+                                                        <div class="radio">
+                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
+                                                        </div>
                                                     </div>
-                                                    <div class="radio col-lg-6">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Perempuan
-                                                        </label>
+                                                    <div class="form-group col-md-6">
+                                                        <div class="radio">
+                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Alamat">
+                                                    <input class="form-control " name="alamat" type="text" placeholder="Alamat">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="RT/RW">
+                                                    <input class="form-control " name="rt_rw" type="text" placeholder="RT/RW">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Desa">
+                                                    <input class="form-control " name="desa" type="text" placeholder="Desa">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Kecamatan">
+                                                    <input class="form-control " name="kecamatan" type="text" placeholder="Kecamatan">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Kabupaten">
+                                                    <input class="form-control " name="kabupaten" type="text" placeholder="Kabupaten">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Provinsi">
+                                                    <input class="form-control " name="provinsi" type="text" placeholder="Provinsi">
                                                 </div>
                                             </div>
                                             <div class="modal-footer ">

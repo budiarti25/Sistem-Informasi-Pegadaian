@@ -135,16 +135,16 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="ID Transaksi">
+                                                    <input class="form-control " name="id_transaksi" type="text" placeholder="ID Transaksi">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="ID Pengajuan">
+                                                    <input class="form-control " name="id_pengajuan" type="text" placeholder="ID Pengajuan">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Tgl Transaksi">
+                                                    <input class="form-control " name="tanggal_transaksi" type="text" placeholder="Tgl Transaksi">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Dana Cair">
+                                                    <input class="form-control " name="dana_cair" type="text" placeholder="Dana Cair">
                                                 </div>
                                             </div>
                                             <div class="modal-footer ">

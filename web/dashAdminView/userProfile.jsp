@@ -98,12 +98,12 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <div class="radio">
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />Laki-laki
+                                        <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <div class="radio">
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>Perempuan
+                                        <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
                                     </div>
                                 </div>
                             </div>
