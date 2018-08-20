@@ -56,31 +56,31 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="perhiasan.jsp">
-                                <i class="material-icons">content_paste</i>
+                                <i class="material-icons">attach_money</i>
                                 <p>Perhiasan</p>
                             </a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="elektronik.jsp">
-                                <i class="material-icons">library_books</i>
+                                <i class="material-icons">tv</i>
                                 <p>Elektronik</p>
                             </a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="handphone.jsp">
-                                <i class="material-icons">bubble_chart</i>
+                                <i class="material-icons">phone_iphone</i>
                                 <p>Handphone</p>
                             </a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="laptop.jsp">
-                                <i class="material-icons">bubble_chart</i>
+                                <i class="material-icons">laptop</i>
                                 <p>Laptop</p>
                             </a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="kendaraan.jsp">
-                                <i class="material-icons">bubble_chart</i>
+                                <i class="material-icons">motorcycle</i>
                                 <p>Kendaraan</p>
                             </a>
                         </li>

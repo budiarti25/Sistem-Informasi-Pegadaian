@@ -201,7 +201,7 @@
           <p>Kredit Cepat Aman (KCA) adalah kredit dengan sistem gadai yang diberikan kepada semua golongan nasabah, baik untuk kebutuhan konsumtif maupun kebutuhan produktif. KCA merupakan solusi terpercaya untuk mendapatkan pinjaman secara mudah, cepat dan aman.</p>
         </header>
 
-        <div class="row about-cols">
+<!--        <div class="row about-cols">
 
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
@@ -242,7 +242,7 @@
             </div>
           </div>
 
-        </div>
+        </div>-->
 
       </div>
     </section><!-- #about -->

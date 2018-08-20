@@ -48,19 +48,19 @@
                             <a  href="dashboardAdmin.jsp"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a  class="active-menu"  href="userProfile.jsp"><i class="fa fa-user fa-3x"></i> User Profile </a>
+                            <a class="active-menu" href="userProfile.jsp"><i class="fa fa-user fa-3x"></i> User Profile </a>
                         </li>
                         <li>
-                            <a  href="nasabah.jsp"><i class="fa fa-qrcode fa-3x"></i> Nasabah </a>
+                            <a href="nasabah.jsp"><i class="fa fa-users fa-3x"></i> Nasabah </a>
                         </li>
                         <li>
-                            <a   href="transaksi.jsp"><i class="fa fa-bar-chart-o fa-3x"></i> Transaksi </a>
+                            <a href="transaksi.jsp"><i class="fa fa-cogs fa-3x"></i> Transaksi </a>
                         </li>	
                         <li>
-                            <a  href="angsuran.jsp"><i class="fa fa-table fa-3x"></i> Angsuran </a>
+                            <a href="angsuran.jsp"><i class="fa fa-dollar fa-3x"></i> Angsuran </a>
                         </li>
                         <li>
-                            <a  href="barang.jsp"><i class="fa fa-edit fa-3x"></i> Barang </a>
+                            <a  href="barang.jsp"><i class="fa fa-archive fa-3x"></i> Barang </a>
                         </li>				
                     </ul>
                 </div>

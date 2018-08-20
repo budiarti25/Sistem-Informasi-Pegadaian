@@ -55,19 +55,19 @@
                             <a  href="dashboardAdmin.jsp"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a  href="userProfile.jsp"><i class="fa fa-user fa-3x"></i> User Profile </a>
+                            <a href="userProfile.jsp"><i class="fa fa-user fa-3x"></i> User Profile </a>
                         </li>
                         <li>
-                            <a  href="nasabah.jsp"><i class="fa fa-qrcode fa-3x"></i> Nasabah </a>
+                            <a href="nasabah.jsp"><i class="fa fa-users fa-3x"></i> Nasabah </a>
                         </li>
                         <li>
-                            <a   href="transaksi.jsp"><i class="fa fa-bar-chart-o fa-3x"></i> Transaksi </a>
+                            <a href="transaksi.jsp"><i class="fa fa-cogs fa-3x"></i> Transaksi </a>
                         </li>	
                         <li>
-                            <a  class="active-menu"  href="angsuran.jsp"><i class="fa fa-table fa-3x"></i> Angsuran </a>
+                            <a class="active-menu" href="angsuran.jsp"><i class="fa fa-dollar fa-3x"></i> Angsuran </a>
                         </li>
                         <li>
-                            <a  href="barang.jsp"><i class="fa fa-edit fa-3x"></i> Barang </a>
+                            <a  href="barang.jsp"><i class="fa fa-archive fa-3x"></i> Barang </a>
                         </li>				
                     </ul>
                 </div>
@@ -166,7 +166,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title custom_align" id="Heading">Edit Data Nasabah</h4>
+                                                <h4 class="modal-title custom_align" id="Heading">Edit Data Angsuran</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
