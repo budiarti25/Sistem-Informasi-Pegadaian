@@ -163,19 +163,19 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">NIK</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" name="nik" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Email</label>
-                                                        <input type="email" class="form-control">
+                                                        <input type="email" name="username" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Password</label>
-                                                        <input type="password" class="form-control">
+                                                        <input type="password" name="password" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>

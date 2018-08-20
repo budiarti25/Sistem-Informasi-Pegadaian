@@ -162,15 +162,21 @@
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
                                                 <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link active" href="#profile" data-toggle="tab" style="text-align: center">
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link active" href="#step-1" data-toggle="tab" style="text-align: center">
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
-                                                    <li class="nav-item col-md-6">
-                                                        <a class="nav-link" href="#settings" data-toggle="tab" style="text-align: center">
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link" href="#step-2" data-toggle="tab" style="text-align: center">
                                                             Langkah 2
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link" href="#step-3" data-toggle="tab" style="text-align: center">
+                                                            Langkah 3
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -181,12 +187,13 @@
 
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="profile">
+                                            <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
+                                                                    <input type="hidden" name="id_barang" value="">
                                                                     <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis Perhiasan</option>
                                                                         <%
@@ -248,7 +255,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="tab-pane" id="settings">
+                                            <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
                                                     <form>
                                                         <div class="row">
@@ -275,6 +282,13 @@
                                                         </div>
                                                         <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
                                                         <div class="clearfix"></div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="step-3">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <p>success...........</p>
                                                     </form>
                                                 </div>
                                             </div>

@@ -137,7 +137,7 @@
                                     <label>Account</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="email" class="form-control" name="email" placeholder="Email"/>
+                                    <input type="email" class="form-control" name="username" placeholder="Email"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input type="password" class="form-control" name="password" placeholder="Password"/>

@@ -158,21 +158,21 @@
                                         <div class="nav-tabs-navigation">
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
-                                                <ul class="nav nav-tabs" data-tabs="tabs" style="text-align: center">
-                                                    <li class="nav-item col-md-4" >
-                                                        <a class="nav-link active" href="step-1" data-toggle="tab" >
+                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                    <li class="nav-item col-md-4">
+                                                        <a class="nav-link active" href="#step-1" data-toggle="tab" style="text-align: center">
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-4">
-                                                        <a class="nav-link disabled" href="step-2" data-toggle="tab" >
-                                                           Langkah 2
+                                                        <a class="nav-link" href="#step-2" data-toggle="tab" style="text-align: center">
+                                                            Langkah 2
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-4">
-                                                        <a class="nav-link disabled" href="step-3" data-toggle="tab">
+                                                        <a class="nav-link" href="#step-3" data-toggle="tab" style="text-align: center">
                                                             Langkah 3
                                                             <div class="ripple-container"></div>
                                                         </a>
@@ -186,11 +186,12 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Merk Laptop</label>
+                                                                    <input type="hidden" name="id_barang" value="">
                                                                     <input type="text" class="form-control">
                                                                 </div>
                                                             </div>

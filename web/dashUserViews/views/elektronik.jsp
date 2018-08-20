@@ -167,7 +167,6 @@
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
-                                                        <p class="nav-link"></p>
                                                     </li>
                                                     <li class="nav-item col-md-4">
                                                         <a class="nav-link" href="#step-2" data-toggle="tab" style="text-align: center">
@@ -188,13 +187,13 @@
 
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="profile">
+                                            <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-
+                                                                    <input type="hidden" name="id_barang" value="">
                                                                     <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis Elektronik</option>
                                                                         <%
@@ -264,7 +263,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="tab-pane" id="settings">
+                                            <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
                                                     <form>
                                                         <div class="row">
@@ -291,6 +290,13 @@
                                                         </div>
                                                         <button type="submit" class="btn btn-primary pull-right" onclick="demo.showNotification('top', 'center')" style="background: #00bcd4">Pengajuan</button>
                                                         <div class="clearfix"></div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="step-3">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <p>success...........</p>
                                                     </form>
                                                 </div>
                                             </div>
