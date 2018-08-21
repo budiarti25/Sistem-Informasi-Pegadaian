@@ -25,7 +25,7 @@ public class AkunController {
     }
     
     public boolean saveOrEdit(String nik, String nama, Character jenisKelamin, String alamat, String rtRw, String desa, String kecamatan, String kabupaten, String provinsi, String username, String password, String idRole){
-        Akun akun = new Akun(nik, nama, jenisKelamin, alamat, rtRw, desa, kecamatan, kabupaten, provinsi, username, password, new Role(idRole));
+        Akun akun = new Akun(nik, nama, jenisKelamin, alamat, rtRw, desa, kecamatan, kabupaten, provinsi, username, BCrypt.hashpw(password, BCrypt.gensalt(12)), new Role(idRole));
         return this.dAO.insertOrUpdate(akun);
     }
     
@@ -72,6 +72,7 @@ public class AkunController {
     
     public boolean login1(String category, String username, String password){
         Akun akun = (Akun) this.dAO.search(category, username).get(0);
+        System.out.println(akun.getNik()+", "+akun.getPassword());
         return BCrypt.checkpw(password, akun.getPassword());
     }
 }

@@ -54,6 +54,10 @@
 
 })(jQuery);
 
+// validates text only
+function Validate(txt) {
+    txt.value = txt.value.replace(/[^a-zA-Z-'\n\r.]+/g, '');
+}
 // Validate NIK
 /**
  * Comment

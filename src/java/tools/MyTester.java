@@ -18,7 +18,7 @@ public class MyTester {
 //        System.out.println("Berhasil");
         
         BarangController ac = new BarangController(HibernateUtil.getSessionFactory());
-        //System.out.println(ac.saveOrEdit("3312227101870001", "Dyah Wulandari", 'P', "Buling", "012/005", "Bubakan", "Girimarto", "Wonogiri", "Jawa Tengah", 'U')); 
+        System.out.println(ac.saveOrEdit('1234567891011121','Admin','L','','','','','','','A','123456','admin@gmail.com')); 
 //          System.out.println(BCrypt.hashpw("dyah31", BCrypt.gensalt(12)));
 //          System.out.println(BCrypt.checkpw("dyah31", 
 //                  BCrypt.hashpw("dyah31", BCrypt.gensalt(12))));
@@ -27,5 +27,8 @@ public class MyTester {
 //        }else
 //            System.out.println("gagal");
             System.out.println(ac.AutoId());
+            AkunController acs = new AkunController(HibernateUtil.getSessionFactory());
+//            System.out.println(acs.saveOrEdit("123", "as", 'L', "satu", "1", "3", "ploso", "kudus", "jateng", "jojo@gmail.com", "Salatiga", "U"));
+            System.out.println(acs.login1("username", "jojo@gmail.com", "Salatiga"));
     }
 }

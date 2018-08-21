@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Akun"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page import="controllers.AkunController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,14 +38,23 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('images/img-01.jpg');">
                 <div class="wrap-login100 p-t-50 p-b-30">
-                    <form class="login100-form validate-form">
+                    <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory()); %>
+                    <form class="login100-form validate-form" action="../regestrasiServlet" method="GET" name="login">
                         <span class="login100-form-title p-t-20 p-b-45">
                             Register To Get Account
                         </span>
                         
+<!--                        <div class="wrap-input100 validate-input m-b-10" data-validate = "Name is required">
+                            <input class="input100" required type="text" name="txtNama" id = "txt" placeholder="Nama Lengkap" onkeyup = "Validate(this)" required/> 
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        -->
                         <div class="wrap-input100 validate-input m-b-10" data-validate = "NIK is required">
                             <!--<input class="input100" type="email" name="username" placeholder="Email">-->
-                            <input class="input100" required type="number" name="txtnik" id = "nik" placeholder="NIK" min="16" max="16"/> 
+                            <input class="input100" required type="number" name="txtNIK" id = "nik" placeholder="NIK" onKeyPress="if(this.value.length==16) return false;"/> 
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-vcard"></i>
@@ -51,11 +63,11 @@
 
                         <div class="wrap-input100 validate-input m-b-10" data-validate = "Email is required">
                             <!--<input class="input100" type="email" name="username" placeholder="Email">-->
-                            <input class="input100" required type="text" name="username" id = "email"  onchange="email_validate(this.value);" placeholder="Email" /> 
+                            <input class="input100" required type="text" name="txtUsername" id = "email"  onchange="email_validate(this.value);" placeholder="Email" /> 
                             <div class="status" id="status"></div>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-user"></i>
+                                <i class="fa fa-at"></i>
                             </span>
                         </div>
 

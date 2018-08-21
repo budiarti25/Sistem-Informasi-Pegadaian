@@ -169,7 +169,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Email</label>
-                                                        <input type="email" name="username" class="form-control">
+                                                        <input type="email" name="username" class="form-control" readonly="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -193,10 +193,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <div class="form-group label-floating">
+                                                    <div class="form-group">
+                                                        <!--<label class="bmd-label-floating">Jenis Kelamin</label>-->
                                                         <select name="jenis_kelamin" class="form-control">
-                                                            <option disabled="" selected="">Jenis Kelamin</option>
-                                                            <option value="laki-laki">Laki-laki</option>
+                                                            <!--<option disabled="" selected=""></option>-->
+                                                            <option selected="" value="laki-laki">Laki-laki</option>
                                                             <option value="perempuan">Perempuan</option>
                                                         </select>
                                                     </div>
