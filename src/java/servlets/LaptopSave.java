@@ -1,28 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package servlets;
 
-import controllers.AkunController;
-import entities.Akun;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import tools.HibernateUtil;
 
 /**
  *
- * @author budiarti
+ * @author Marsha D A
  */
-public class LoginServlet extends HttpServlet {
+public class LaptopSave extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +26,8 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("name");
-        String pass = request.getParameter("password");
-        HttpSession session = request.getSession();
-        RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
-            if (user.equals("") || pass.equals("")) {
-                out.println("Login Gagal,no character");
-                response.sendRedirect("userViews/loginView.jsp");
-            }else{
-                if (ac.login1("username", user, pass)){
-                    session.setAttribute("name", user);
-                    response.sendRedirect("dashUserViews/views/dasboardUser.jsp");
-                } else {
-                    out.println("Login Gagal");
-                    response.sendRedirect("userViews/loginView.jsp");
-                }
-            }
+            
         }
     }
 

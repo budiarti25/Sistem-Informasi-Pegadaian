@@ -64,4 +64,14 @@ public class AkunController {
         Akun akun = (Akun) this.dAO.search(category, idRole).get(0);
         return akun;
     }
+    
+    public Akun getByCategory(String category, String data){
+        Akun akun = (Akun) this.dAO.search(category, data).get(0);
+        return this.dAO.getById(akun.getNik());
+    }
+    
+    public boolean login1(String category, String username, String password){
+        Akun akun = (Akun) this.dAO.search(category, username).get(0);
+        return BCrypt.checkpw(password, akun.getPassword());
+    }
 }

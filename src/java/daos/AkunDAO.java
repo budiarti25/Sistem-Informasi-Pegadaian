@@ -41,8 +41,8 @@ public class AkunDAO {
         return this.fdao.getData("FROM Akun WHERE "+category1+ " LIKE '%"+data+"%'");
     }
     
-    public Object getById(String id){
-        return this.fdao.getById(id);
+    public Akun getById(String id){
+        return (Akun) this.fdao.getById(id);
     }
     
 }

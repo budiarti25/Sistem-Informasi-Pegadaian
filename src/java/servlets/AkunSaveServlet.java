@@ -6,10 +6,8 @@
 package servlets;
 
 import controllers.AkunController;
-import entities.Akun;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +20,7 @@ import tools.HibernateUtil;
  *
  * @author budiarti
  */
-public class LoginServlet extends HttpServlet {
+public class AkunSaveServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,23 +34,28 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("name");
-        String pass = request.getParameter("password");
+        String nik = request.getParameter("txtNik");
+        String nama = request.getParameter("nama");
+        String nama2 = request.getParameter("nama1");
+        String nm= nama+" "+nama2;
+        String jk= request.getParameter("jenis_kelamin");
+        String alamat = request.getParameter("alamat");
+        String rtrw = request.getParameter("rt_rw");
+        String desa = request.getParameter("desa");
+        String kec = request.getParameter("txtKec");
+        String kab = request.getParameter("txtKab");
+        String prov = request.getParameter("txtProv");
+       // String role = request.getParameter("txtRole");
+        String user = request.getParameter("txtEmail");
+        String pass = request.getParameter("txtPass");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
             AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
-            if (user.equals("") || pass.equals("")) {
-                out.println("Login Gagal,no character");
-                response.sendRedirect("userViews/loginView.jsp");
+            if (ac.saveOrEdit(nik, nm, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "U")) {
+                out.print("success added");
             }else{
-                if (ac.login1("username", user, pass)){
-                    session.setAttribute("name", user);
-                    response.sendRedirect("dashUserViews/views/dasboardUser.jsp");
-                } else {
-                    out.println("Login Gagal");
-                    response.sendRedirect("userViews/loginView.jsp");
-                }
+                out.print("failed");
             }
         }
     }

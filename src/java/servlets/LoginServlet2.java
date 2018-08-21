@@ -6,10 +6,8 @@
 package servlets;
 
 import controllers.AkunController;
-import entities.Akun;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +20,7 @@ import tools.HibernateUtil;
  *
  * @author budiarti
  */
-public class LoginServlet extends HttpServlet {
+public class LoginServlet2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,9 +44,9 @@ public class LoginServlet extends HttpServlet {
                 out.println("Login Gagal,no character");
                 response.sendRedirect("userViews/loginView.jsp");
             }else{
-                if (ac.login1("username", user, pass)){
+                if (ac.login1("username", user, pass)) {
                     session.setAttribute("name", user);
-                    response.sendRedirect("dashUserViews/views/dasboardUser.jsp");
+                    response.sendRedirect("dashAdminView/dashboardAdmin.jsp");
                 } else {
                     out.println("Login Gagal");
                     response.sendRedirect("userViews/loginView.jsp");
