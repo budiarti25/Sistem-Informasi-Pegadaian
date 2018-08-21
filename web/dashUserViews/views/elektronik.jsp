@@ -4,6 +4,7 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
 <%@page import="controllers.JenisBarangController"%>
 <%@page import="tools.HibernateUtil"%>
@@ -189,11 +190,14 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
-                                                    <form method="post" action="">
+                                                    <form method="post" action="elektronikSave">
+                                                        <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
+                                                            String id = bc.AutoId();
+                                                        %>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="hidden" name="id_barang" value="">
+                                                                    <input type="hidden" name="id_barang" value="<%= id%>">
                                                                     <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis Elektronik</option>
                                                                         <%

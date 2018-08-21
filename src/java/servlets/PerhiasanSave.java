@@ -1,16 +1,22 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Marsha D A
+ * @author budiarti
  */
 public class PerhiasanSave extends HttpServlet {
 
@@ -26,8 +32,22 @@ public class PerhiasanSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String idB = request.getParameter("id_barang");
+        String jenis = request.getParameter("cbxJenis");
+        String bersih = request.getParameter("txtBersih");
+        String kotor = request.getParameter("txtKotor");
+        String karat = request.getParameter("txtKadar");
+        String deskripsi = karat+";"+bersih+";"+kotor;
+        int harga = (int) (((80*500000)/100)*Float.parseFloat(bersih));
+        String foto = request.getParameter("foto");
+        HttpSession session = request.getSession();
+        RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            
+            out.println(idB);
+           // out.println(jenis);
+            out.println(deskripsi);
+            out.println(harga);
+            out.println(foto);
         }
     }
 

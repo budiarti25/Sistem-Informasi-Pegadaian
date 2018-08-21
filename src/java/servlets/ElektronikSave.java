@@ -39,7 +39,7 @@ public class ElektronikSave extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
             if (bc.saveOrEdit(jenis, merk, jual, gambar, desk)) {
-                response.sendRedirect("views/gadaiElektronikView.jsp");
+                out.println("Berhasil");
             }
             else
             {
