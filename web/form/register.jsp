@@ -39,6 +39,15 @@
                         <span class="login100-form-title p-t-20 p-b-45">
                             Register To Get Account
                         </span>
+                        
+                        <div class="wrap-input100 validate-input m-b-10" data-validate = "NIK is required">
+                            <!--<input class="input100" type="email" name="username" placeholder="Email">-->
+                            <input class="input100" required type="number" name="txtnik" id = "nik" placeholder="NIK" min="16" max="16"/> 
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-vcard"></i>
+                            </span>
+                        </div>
 
                         <div class="wrap-input100 validate-input m-b-10" data-validate = "Email is required">
                             <!--<input class="input100" type="email" name="username" placeholder="Email">-->
@@ -65,7 +74,7 @@
                             <span class="symbol-input100">
                                 <i class="fa fa-lock"></i>
                             </span>
-                            
+
                         </div>
 
                         <div class="container-login100-form-btn p-t-10">
@@ -89,7 +98,7 @@
                                                 </div>-->
 
                         <div class="text-center w-full p-t-25 p-b-25">
-                            <a class="txt1" href="#">
+                            <a class="txt1" href="loginUser.jsp">
                                 Back To Login
                                 <i class="fa fa-long-arrow-left"></i>						
                             </a>
@@ -108,6 +117,9 @@
         <script src="vendor/select2/select2.min.js"></script>
         <!--===============================================================================================-->
         <script src="js/main.js"></script>
+        <script type="text/javascript">
+            document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
+        </script>
 
     </body>
 </html>

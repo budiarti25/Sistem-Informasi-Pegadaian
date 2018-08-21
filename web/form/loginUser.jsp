@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="text-center w-full">
-                            <a class="txt1" href="#">
+                            <a class="txt1" href="register.jsp">
                                 Create new account
                                 <i class="fa fa-long-arrow-right"></i>						
                             </a>

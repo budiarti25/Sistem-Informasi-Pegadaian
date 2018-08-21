@@ -71,7 +71,7 @@
             </ul>
           </li> -->
           <li><a href="#contact">Contact</a></li>
-          <li><a href="loginView.jsp" class="btn btn-success" style="padding-top: 7px">Login <i class="ion-android-lock"></i></a></li>
+          <li><a href="../form/loginUser.jsp" class="btn btn-success" style="padding-top: 7px">Login <i class="ion-android-lock"></i></a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
