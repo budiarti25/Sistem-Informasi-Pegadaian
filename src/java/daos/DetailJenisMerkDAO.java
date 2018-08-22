@@ -36,6 +36,10 @@ public class DetailJenisMerkDAO {
         return this.fdao.getData("FROM DetailJenisMerk WHERE "+category+ " LIKE '%"+data+"%'");
     }
     
+    public DetailJenisMerk search2(String data, String data1){
+        return (DetailJenisMerk) this.fdao.getById("FROM DetailJenisMerk WHERE idJenis = '"+data+"' and idMerk = '"+data1+"'");
+    }
+    
     public Object getById(String id){
         return this.fdao.getById(id);
     }

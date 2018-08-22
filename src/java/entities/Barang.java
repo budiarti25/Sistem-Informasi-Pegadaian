@@ -140,7 +140,7 @@ public class Barang implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Barang[ idBarang=" + idBarang + " ]";
+        return "Barang{" + "idBarang=" + idBarang + ", hargaPerkiraan=" + hargaPerkiraan + ", foto=" + foto + ", deskripsi=" + deskripsi + ", pengajuanList=" + pengajuanList + ", idDetail=" + idDetail + '}';
     }
     
 }

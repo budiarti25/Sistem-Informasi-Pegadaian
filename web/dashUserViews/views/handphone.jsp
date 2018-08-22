@@ -4,6 +4,10 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.PengajuanController"%>
+<%@page import="entities.Barang"%>
+<%@page import="entities.Akun"%>
+<%@page import="controllers.AkunController"%>
 <%@page import="entities.DetailJenisMerk"%>
 <%@page import="controllers.DetailJMController"%>
 <%@page import="controllers.BarangController"%>
@@ -31,6 +35,13 @@
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+            String user = session.getAttribute("name").toString();
+            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
+            
+            String cek = session.getAttribute("barang").toString();
+            Barang barang = (Barang) new BarangController(HibernateUtil.getSessionFactory()).findByID(cek);
+        %>
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
@@ -201,27 +212,27 @@
                                                                 <div class="form-group">
                                                                     <input type="hidden" name="id_barang" value="<%= id%>">
                                                                     <input type="hidden" name="id_jenis" value="JN8">
-                                                                    <select class="form-control" name="cbxJenis">
+<!--                                                                    <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis </option>
                                                                         <%
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT3")) {
                                                                         %>
-                                                                        <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
+                                                                        <option value="<%= jb.getIdJenis()%>%>"><%= jb.getNamaJenis()%></option>
                                                                         <% }
                                                                         %>
-                                                                    </select>
+                                                                    </select>-->
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <select class="form-control" name="cbxJenis">
-                                                                        <option disabled="" selected="0">Merk Laptop</option>
+                                                                    <select class="form-control" name="cbxJMerk">
+                                                                        <option disabled="" selected="0">Merk Handphone</option>
                                                                         <%
                                                                             DetailJMController jbcController = new DetailJMController(HibernateUtil.getSessionFactory());
                                                                             for (DetailJenisMerk djm : jbcController.search("Id_jenis", "JN8")) {
                                                                         %>
-                                                                        <option value="<%= djm.getIdJenis()%>,<%= djm.getIdDetail()%>"><%= djm.getIdMerk().getNamaMerk() %></option>
+                                                                        <option value="<%= djm.getIdMerk()%>"><%= djm.getIdMerk().getNamaMerk() %></option>
                                                                         <% }
                                                                         %>
                                                                     </select>
@@ -232,13 +243,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tipe</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtTipe" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Kondisi Barang</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtKondisi" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -246,7 +257,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Harga Jual</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtJual" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -280,18 +291,23 @@
 
                                             <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="pengajuanHandphone">
+                                                        <% PengajuanController pj = new PengajuanController(HibernateUtil.getSessionFactory());
+                                                            String idPn = pj.AutoId();
+                                                        %>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="hidden" name="txtBarang" value="<%= barang.getIdBarang() %>" />
+                                                                    <input type="hidden" name="txtPengajuan" value="<%= idPn %>" />
+                                                                    <input type="text" name="txtNik" class="form-control" readonly="readonly" value="<%= akun.getNik() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtTanggal" value="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -299,7 +315,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtNama" class="form-control" readonly="readonly" value="<%= akun.getNama() %>">
                                                                 </div>
                                                             </div>
                                                         </div>

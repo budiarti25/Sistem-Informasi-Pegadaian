@@ -4,6 +4,14 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.PengajuanController"%>
+<%@page import="controllers.PengajuanController"%>
+<%@page import="entities.Barang"%>
+<%@page import="entities.Akun"%>
+<%@page import="controllers.AkunController"%>
+<%@page import="controllers.AkunController"%>
+<%@page import="entities.DetailJenisMerk"%>
+<%@page import="controllers.DetailJMController"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
 <%@page import="tools.HibernateUtil"%>
@@ -29,6 +37,13 @@
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+            String user = session.getAttribute("name").toString();
+            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
+            
+            String cek = session.getAttribute("barang").toString();
+            Barang barang = (Barang) new BarangController(HibernateUtil.getSessionFactory()).findByID(cek);
+        %>
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
@@ -204,7 +219,7 @@
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT4")) {
                                                                         %>
-                                                                        <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
+                                                                        <option value="<%= jb.getIdJenis()%>"><%= jb.getNamaJenis()%></option>
                                                                         <% }
                                                                         %>
                                                                     </select>
@@ -212,8 +227,16 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Merk</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <select id="cmbMerk" class="form-control" name="cbxMerk" onchange="merk()">
+                                                                        <option disabled="" selected="0">Merk Kendaraan</option>
+                                                                        <%
+                                                                            DetailJMController jbcController = new DetailJMController(HibernateUtil.getSessionFactory());
+                                                                            for (DetailJenisMerk djm : jbcController.search("idMerk", "JN12")) {
+                                                                        %>
+                                                                        <option value="<%= djm.getIdMerk() %>"><%= djm.getIdMerk().getNamaMerk()%></option>
+                                                                        <% }
+                                                                        %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -221,13 +244,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tipe</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtTipe" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Isi Silinder</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtSilinder" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -235,13 +258,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tahun Pembuatan</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtBuat" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Harga Jual</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtJual" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -249,13 +272,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nama BPKB</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtNamaBPKB" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nomor BPKB</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtNoBPKB" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -263,13 +286,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nomor Mesin</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtMesin" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nomor Polisi</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtPolisi" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -277,13 +300,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nomor Rangka</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtRangka" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nomor STNK</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <input type="text" name="txtSTNK" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -317,18 +340,23 @@
 
                                             <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="pengajuanKendaraan">
+                                                        <% PengajuanController pj = new PengajuanController(HibernateUtil.getSessionFactory());
+                                                            String idPn = pj.AutoId();
+                                                        %>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="hidden" name="txtBarang" value="<%= barang.getIdBarang() %>" />
+                                                                    <input type="hidden" name="txtPengajuan" value="<%= idPn %>" />
+                                                                    <input type="text" name="txtNik" class="form-control" readonly="readonly" value="<%= akun.getNik() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtTanggal" value="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -336,7 +364,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtNama" class="form-control" readonly="readonly" value="<%= akun.getNama() %>">
                                                                 </div>
                                                             </div>
                                                         </div>

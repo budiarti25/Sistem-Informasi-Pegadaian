@@ -45,6 +45,10 @@ public class BarangController {
         return this.convertToListBarang(this.dAO.search(category, data));
     }
     
+    public List<Barang> search2(String data, String data2){
+        return  this.convertToListBarang(this.dAO.getBy(data, data2));
+    }
+    
     public List<Barang> getAll(){
         return this.convertToListBarang(this.dAO.getAll());
     }

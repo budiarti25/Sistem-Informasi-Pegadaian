@@ -5,14 +5,19 @@
  */
 package servlets;
 
+import controllers.BarangController;
+import controllers.DetailJMController;
+import entities.Barang;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Optional;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tools.HibernateUtil;
 
 /**
  *
@@ -20,6 +25,8 @@ import javax.servlet.http.HttpSession;
  */
 public class PerhiasanSave extends HttpServlet {
 
+    private BarangController barangController = new BarangController(HibernateUtil.getSessionFactory());
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,6 +42,7 @@ public class PerhiasanSave extends HttpServlet {
         String idB = request.getParameter("id_barang");
         String idM = request.getParameter("id_merk");
         String jenis = request.getParameter("cbxJenis");
+        String detail = null;
         String bersih = request.getParameter("txtBersih");
         String kotor = request.getParameter("txtKotor");
         String karat = request.getParameter("txtKadar");
@@ -43,13 +51,19 @@ public class PerhiasanSave extends HttpServlet {
         String foto = request.getParameter("foto");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
+  
         try (PrintWriter out = response.getWriter()) {
-            out.println(idB);
-            out.println(idM);
-            out.println(jenis);
-            out.println(deskripsi);
-            out.println(harga);
-            out.println(foto);
+            DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
+             detail = djmc.search2(jenis, idM).getIdDetail();
+            BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
+            if (bc.saveOrEdit(idB, detail, Integer.toString(harga), foto, deskripsi)) {
+                out.println("Berhasil");
+                session.setAttribute("barang", idB);
+            }
+            else
+            {
+                out.println("Gagal");
+            }
         }
     }
 

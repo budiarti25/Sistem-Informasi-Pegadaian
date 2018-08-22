@@ -43,7 +43,6 @@ public class AdminAkunServlet extends HttpServlet {
         String kec = request.getParameter("kecamatan");
         String kab = request.getParameter("kabupaten");
         String prov = request.getParameter("provinsi");
-       // String role = request.getParameter("txtRole");
         String user = request.getParameter("email");
         String pass = request.getParameter("password");
         HttpSession session = request.getSession();

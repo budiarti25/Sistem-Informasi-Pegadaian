@@ -23,6 +23,11 @@ public class BarangDAO {
         this.fdao = new FunctionDAO(factory);
     }
     
+    public List<Object> getBy(String data, String data2){
+        return this.fdao.getData("select b from Barang b join b.idDetail djm where djm.idJenis = '"+data+"' AND djm.idMerk = '"+data2+"'");
+                
+    }
+    
     public boolean insertOrUpdate(Barang barang){
         return this.fdao.insertUpdate(barang);
     }

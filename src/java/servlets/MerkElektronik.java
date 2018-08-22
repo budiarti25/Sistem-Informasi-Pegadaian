@@ -1,23 +1,22 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package servlets;
 
-import controllers.BarangController;
-import controllers.DetailJMController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import tools.HibernateUtil;
 
 /**
  *
- * @author Marsha D A
+ * @author budiarti
  */
-public class HandphoneSave extends HttpServlet {
+public class MerkElektronik extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,32 +30,11 @@ public class HandphoneSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            String idB = request.getParameter("id_barang");
-            String jenis = request.getParameter("id_jenis");
-            String merk = request.getParameter("cbxMerk");
-            String tipe = request.getParameter("txtTipe");
-            String kondisi = request.getParameter("txtKondisi");
-            String jual = request.getParameter("txtJual");
-            String gambar = request.getParameter("foto");
-            String desk = tipe+";"+kondisi;
-            String detail= null;
-            HttpSession session = request.getSession();
-            RequestDispatcher dispatcher = null;
-         try (PrintWriter out = response.getWriter()) {
-             DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
-             detail = djmc.search2(jenis, merk).getIdDetail();
-            BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
-            if (bc.saveOrEdit(idB, detail,jual, gambar, desk)) {
-                out.println("oke");
-                session.setAttribute("id_barang", idB);
-                //response.sendRedirect("views/gadaiElektronikView.jsp");
-            }
-            else
-            {
-                out.println("Gagal");
-            }
-        }
+        String merk = request.getParameter("cbxMerk");
         
+        try (PrintWriter out = response.getWriter()) {
+            out.println(merk);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

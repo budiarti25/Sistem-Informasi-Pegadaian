@@ -92,10 +92,10 @@ public class FunctionDAO implements InterfaceDAO{
         Object data = new Object();
         try {
             this.session = this.factory.openSession();
-            this.transaction = this.session.beginTransaction();
+//            this.transaction = this.session.beginTransaction();
             data = this.session.createQuery(query)
                     .uniqueResult();
-            this.transaction.commit();
+//            this.transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
             if (this.transaction != null) {

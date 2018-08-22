@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.PengajuanController"%>
+<%@page import="entities.Akun"%>
+<%@page import="controllers.AkunController"%>
 <%@page import="entities.Barang"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
@@ -30,6 +33,13 @@
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+            String user = session.getAttribute("name").toString();
+            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
+          
+            String cek = session.getAttribute("barang").toString();
+            Barang barang = (Barang) new BarangController(HibernateUtil.getSessionFactory()).findByID(cek);
+        %>
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
@@ -263,18 +273,23 @@
 
                                             <div class="tab-pane" id="step-2">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="pengajuanPerhiasan">
+                                                        <% PengajuanController pj = new PengajuanController(HibernateUtil.getSessionFactory());
+                                                            String idPn = pj.AutoId();
+                                                        %>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="hidden" name="txtBarang" value="<%= barang.getIdBarang() %>" />
+                                                                    <input type="hidden" name="txtPengajuan" value="<%= idPn %>" />
+                                                                    <input type="text" name="txtNik" class="form-control" readonly="readonly" value="<%= akun.getNik() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtNama" value="" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -282,7 +297,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtNama" class="form-control" readonly="readonly" value="<%= akun.getNama() %>">
                                                                 </div>
                                                             </div>
                                                         </div>
