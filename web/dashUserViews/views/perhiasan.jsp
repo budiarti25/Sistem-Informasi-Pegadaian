@@ -4,6 +4,7 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Barang"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
 <%@page import="tools.HibernateUtil"%>
@@ -190,21 +191,23 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="step-1">
                                                 <div class="card-body">
-                                                    <form method="post" action="perhiasanSave">
+                                                    <form method="post" action="../../perhiasanSave">
                                                         <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
                                                             String id = bc.AutoId();
                                                         %>
+                                                        
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <input type="hidden" name="id_barang" value="<%= id %>">
+                                                                    <input type="hidden" name="id_merk" value="M49">
                                                                     <select class="form-control" name="cbxJenis">
                                                                         <option selected="0">Jenis Perhiasan</option>
                                                                         <%
                                                                             JenisBarangController jbc = new JenisBarangController(HibernateUtil.getSessionFactory());
                                                                             for (JenisBarang jb : jbc.search("Id_kategori", "KT1")) {
                                                                         %>
-                                                                        <option value="<%= jb.getIdJenis()%>,<%= jb.getIdKategori()%>"><%= jb.getNamaJenis()%></option>
+                                                                        <option value="<%= jb.getIdJenis()%>"><%= jb.getNamaJenis()%></option>
                                                                         <% }
                                                                         %>
                                                                     </select>

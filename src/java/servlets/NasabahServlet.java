@@ -35,8 +35,6 @@ public class NasabahServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String nik = request.getParameter("txtNik");
         String nama = request.getParameter("nama");
-        String nama2 = request.getParameter("nama1");
-        String nm= nama+" "+nama2;
         String jk= request.getParameter("jenis_kelamin");
         String alamat = request.getParameter("alamat");
         String rtrw = request.getParameter("rt_rw");
@@ -51,7 +49,7 @@ public class NasabahServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
             AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
-            if (ac.saveOrEdit(nik, nm, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "U")) {
+            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "U")) {
                 out.print("success added");
             }else{
                 out.print("failed");

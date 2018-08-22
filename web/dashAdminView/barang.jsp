@@ -112,9 +112,12 @@
                                         <tr class="odd gradeA">
                                             <td><%= barang.getFoto()%></td>
                                             <td><%= barang.getIdBarang()%></td>
-                                            <td><%= barang.getIdDetail()%></td>
+                                            <td><%= barang.getIdDetail() %></td>
                                             <td><%= barang.getHargaPerkiraan()%></td>
                                             <td><%= barang.getDeskripsi()%></td>
+                                            <td>
+                                               <a href="../detailBarang?barangId=<%= barang.getIdBarang() %>">Detail </a> 
+                                            </td>
                                         </tr>
                                         <% i++;
                                             }

@@ -4,6 +4,8 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.DetailJenisMerk"%>
+<%@page import="controllers.DetailJMController"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="tools.HibernateUtil"%>
 <%@page import="entities.JenisBarang"%>
@@ -213,8 +215,16 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Merk</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <select class="form-control" name="cbxJenis">
+                                                                        <option disabled="" selected="0">Merk Laptop</option>
+                                                                        <%
+                                                                            DetailJMController jbcController = new DetailJMController(HibernateUtil.getSessionFactory());
+                                                                            for (DetailJenisMerk djm : jbcController.search("Id_jenis", "JN8")) {
+                                                                        %>
+                                                                        <option value="<%= djm.getIdJenis()%>,<%= djm.getIdDetail()%>"><%= djm.getIdMerk().getNamaMerk() %></option>
+                                                                        <% }
+                                                                        %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>

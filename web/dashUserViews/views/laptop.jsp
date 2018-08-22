@@ -4,6 +4,10 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.DetailJenisMerk"%>
+<%@page import="controllers.DetailJMController"%>
+<%@page import="controllers.JenisBarangController"%>
+<%@page import="controllers.MerkController"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -195,10 +199,19 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Merk Laptop</label>
+                                                                    
                                                                     <input type="hidden" name="id_barang" value="<%= id%>">
                                                                     <input type="hidden" name="id_jenis" value="JN7">
-                                                                    <input type="text" class="form-control">
+                                                                    <select class="form-control" name="cbxJenis">
+                                                                        <option disabled="" selected="0">Merk Laptop</option>
+                                                                        <%
+                                                                            DetailJMController jbc = new DetailJMController(HibernateUtil.getSessionFactory());
+                                                                            for (DetailJenisMerk djm : jbc.search("Id_jenis", "JN7")) {
+                                                                        %>
+                                                                        <option value="<%= djm.getIdJenis()%>,<%= djm.getIdDetail()%>"><%= djm.getIdMerk().getNamaMerk() %></option>
+                                                                        <% }
+                                                                        %>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">

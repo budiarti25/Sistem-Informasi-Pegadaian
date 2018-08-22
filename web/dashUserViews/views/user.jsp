@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Akun"%>
+<%@page import="controllers.AkunController"%>
+<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,6 +28,11 @@
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
     <body>
+        <%
+            String user = session.getAttribute("name").toString();
+           
+            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
+        %>
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
@@ -158,24 +166,24 @@
                                         <p class="card-category">Complete your profile</p>
                                     </div>
                                     <div class="card-body">
-                                        <form>
+                                        <form role="form" method="post" action="../userProfile">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">NIK</label>
-                                                        <input type="text" name="nik" class="form-control">
+                                                        <input type="text" name="nik" class="form-control" disabled="disabled" value="<%= akun.getNik() %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Email</label>
-                                                        <input type="email" name="username" class="form-control" readonly="">
+                                                        <input type="email" name="username" class="form-control" readonly="readonly" value="<%= akun.getUsername() %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Password</label>
-                                                        <input type="password" name="password" class="form-control">
+                                                        <input type="password" name="password" class="form-control" value="<%= akun.getPassword() %>">
                                                     </div>
                                                 </div>
                                             </div>

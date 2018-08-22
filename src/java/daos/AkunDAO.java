@@ -42,7 +42,7 @@ public class AkunDAO {
     }
     
     public Akun getById(String id){
-        return (Akun) this.fdao.getById(id);
+        return (Akun) this.fdao.getById("FROM Akun WHERE username= '"+id+"'");
     }
     
 }

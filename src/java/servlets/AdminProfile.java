@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controllers.AkunController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author budiarti
  */
-public class PerhiasanSave extends HttpServlet {
+public class AdminProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +33,27 @@ public class PerhiasanSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String idB = request.getParameter("id_barang");
-        String idM = request.getParameter("id_merk");
-        String jenis = request.getParameter("cbxJenis");
-        String bersih = request.getParameter("txtBersih");
-        String kotor = request.getParameter("txtKotor");
-        String karat = request.getParameter("txtKadar");
-        String deskripsi = karat+";"+bersih+";"+kotor;
-        int harga = (int) (((80*500000)/100)*Float.parseFloat(bersih));
-        String foto = request.getParameter("foto");
+        String nik = request.getParameter("txtNik");
+        String nama = request.getParameter("nama");
+        String jk= request.getParameter("jenis_kelamin");
+        String alamat = request.getParameter("alamat");
+        String rtrw = request.getParameter("rt_rw");
+        String desa = request.getParameter("desa");
+        String kec = request.getParameter("txtKec");
+        String kab = request.getParameter("txtKab");
+        String prov = request.getParameter("txtProv");
+       // String role = request.getParameter("txtRole");
+        String user = request.getParameter("txtEmail");
+        String pass = request.getParameter("txtPass");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            out.println(idB);
-            out.println(idM);
-            out.println(jenis);
-            out.println(deskripsi);
-            out.println(harga);
-            out.println(foto);
+            AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
+            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "A")) {
+                out.print("success added");
+            }else{
+                out.print("failed");
+            }
         }
     }
 

@@ -4,6 +4,9 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="entities.Akun"%>
+<%@page import="tools.HibernateUtil"%>
+<%@page import="controllers.AkunController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +24,12 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </head>
     <body>
+        <%
+            String user = session.getAttribute("name").toString();
+           
+            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
+        %>
+        
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -78,17 +87,15 @@
                     <hr />
 
                     <div class="row">
-                        <form role="form">
+                        <form role="form" method="post" action="../adminProfile">
                             <div class="col-md-12">
                                 <div class="form-group col-md-4" style="text-align: right">
                                     <label>Nama Lengkap</label>
                                 </div>
+                                <input type="hidden" name="txtNik" value="<%= akun.getNik() %>" />
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="nama" placeholder="Nama Depan"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" name="nama" placeholder="Nama Belakang"/>
+                                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<%= akun.getNama() %>" />
                                     </div>
                                 </div>
                             </div>
@@ -112,24 +119,24 @@
                                     <label>Alamat Lengkap</label>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="alamat" placeholder="Jalan/dusun"/>
+                                    <input type="text" class="form-control" name="alamat" placeholder="Jalan/dusun" value="<%= akun.getAlamat() %>"/>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input type="text"class="form-control" name="rt_rw" placeholder="RT/RW"/>
+                                    <input type="text"class="form-control" name="rt_rw" placeholder="RT/RW" value="<%= akun.getRtRw() %>"/>
                                 </div>
                                 <div class="form-group col-md-4"></div>
                                 <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="desa" placeholder="Desa"/>
+                                    <input type="text" class="form-control" name="desa" placeholder="Desa" value="<%= akun.getDesa() %>"/>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="text"class="form-control" name="kecamatan" placeholder="Kecamatan"/>
+                                    <input type="text"class="form-control" name="txtKec" placeholder="Kecamatan" value="<%= akun.getKecamatan() %>"/>
                                 </div>
                                 <div class="form-group col-md-4"></div>
                                 <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" name="kabupaten" placeholder="Kabupaten"/>
+                                    <input type="text" class="form-control" name="txtKab" placeholder="Kabupaten" value="<%= akun.getKabupaten() %>"/>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="text"class="form-control" name="provinsi" placeholder="Provinsi"/>
+                                    <input type="text"class="form-control" name="txtProv" placeholder="Provinsi" value="<%= akun.getProvinsi() %>"/>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -137,10 +144,10 @@
                                     <label>Account</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="email" class="form-control" name="username" placeholder="Email"/>
+                                    <input type="email" class="form-control" name="txtEmail" placeholder="Email" value="<%= akun.getUsername() %>"/>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <input type="password" class="form-control" name="password" placeholder="Password"/>
+                                    <input type="text" class="form-control" name="txtPass" placeholder="Password" value="<%= akun.getPassword() %>"/>
                                 </div>
                             </div>
                             <div class="col-md-4"></div>
