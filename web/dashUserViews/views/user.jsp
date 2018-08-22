@@ -166,47 +166,41 @@
                                         <p class="card-category">Complete your profile</p>
                                     </div>
                                     <div class="card-body">
-                                        <form role="form" method="post" action="../userProfile">
+                                        <form role="form" method="post" action="../../userProfile">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">NIK</label>
-                                                        <input type="text" name="nik" class="form-control" disabled="disabled" value="<%= akun.getNik() %>">
+                                                        <input type="text" name="txtNik" class="form-control" readonly="readonly" value="<%= akun.getNik() %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Email</label>
-                                                        <input type="email" name="username" class="form-control" readonly="readonly" value="<%= akun.getUsername() %>">
+                                                        <input type="email" name="txtEmail" class="form-control" readonly="readonly" value="<%= akun.getUsername() %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Password</label>
-                                                        <input type="password" name="password" class="form-control" value="<%= akun.getPassword() %>">
+                                                        <input type="password" name="txtPass" class="form-control" value="<%= akun.getPassword() %>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Nama Depan</label>
-                                                        <input type="text" name="nama" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating">Nama Belakang</label>
-                                                        <input type="text" name="nama" class="form-control">
+                                                        <label class="bmd-label-floating">Nama Lengkap</label>
+                                                        <input type="text" name="nama" class="form-control" value="<%= akun.getNama() %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <!--<label class="bmd-label-floating">Jenis Kelamin</label>-->
-                                                        <select name="jenis_kelamin" class="form-control">
+                                                        <select name="jenis_kelamin" class="form-control" value="<%= akun.getJenisKelamin() %>">
                                                             <!--<option disabled="" selected=""></option>-->
-                                                            <option selected="" value="laki-laki">Laki-laki</option>
-                                                            <option value="perempuan">Perempuan</option>
+                                                            <option selected="" value="L">Laki-laki</option>
+                                                            <option value="P">Perempuan</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -219,19 +213,19 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Alamat</label>
-                                                                    <input type="text" name="alamat" class="form-control">
+                                                                    <input type="text" name="alamat" class="form-control" value="<%= akun.getAlamat() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Desa</label>
-                                                                    <input type="text" name="desa" class="form-control">
+                                                                    <input type="text" name="desa" class="form-control" value="<%= akun.getDesa() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">RT/RW</label>
-                                                                    <input type="text" name="rt_rw" class="form-control">
+                                                                    <input type="text" name="rt_rw" class="form-control" value="<%= akun.getRtRw() %>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -239,19 +233,19 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Kecamatan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtKec" class="form-control"  value="<%= akun.getKecamatan() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Kabupaten</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtKab" class="form-control"  value="<%= akun.getKabupaten() %>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Provinsi</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="txtProv" class="form-control"  value="<%= akun.getProvinsi() %>">
                                                                 </div>
                                                             </div>
                                                         </div>

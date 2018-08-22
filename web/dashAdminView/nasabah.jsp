@@ -207,11 +207,11 @@
                                             </div>
                                             <form>
                                                 <%
-                                                    Akun akn = new Akun(txtNik);
+                                                    Akun akn = new Akun();
                                                 %>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <input class="form-control " name="txtNik" type="text" placeholder="NIK" value="<%=  %>">
+                                                    <input class="form-control " name="txtNik" type="text" placeholder="NIK" value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">

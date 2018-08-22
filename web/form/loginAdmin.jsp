@@ -55,7 +55,6 @@
                                 <i class="fa fa-user"></i>
                             </span>
                         </div>
-
                         <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
                             <input class="input100" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
