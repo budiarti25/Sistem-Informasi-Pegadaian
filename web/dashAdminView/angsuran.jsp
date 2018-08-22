@@ -89,8 +89,8 @@
                             <div class="col-md-6">
                                 <button class="btn btn-primary" data-title="Tambah" data-toggle="modal" data-target="#insert"><i class="fa fa-plus"></i> Tambah Data</button>
                             </div>
-                            <div class="col-md-6" style="padding-left: 365px">
-                                <button class="btn btn-success"><i class="fa fa-bookmark"></i> Laporan Data</button>
+                            <div class="col-md-6">
+                                <button class="btn btn-success" style="float: right"><i class="fa fa-bookmark"></i> Laporan Data</button>
                             </div>
                         </div>
                         <!-- Advanced Tables -->                                
@@ -135,26 +135,28 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                 <h4 class="modal-title custom_align" id="Heading">Angsuran Nasabah</h4>
                                             </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <input class="form-control "name="id_angsuran" readonly="" type="text" placeholder="ID Angsuran">
+                                            <form>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input class="form-control "name="id_angsuran" readonly="" type="text" placeholder="ID Angsuran">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control "name="id_transaksi" type="text" placeholder="ID Transaksi">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="tanggal_bayar" type="text" placeholder="Tgl Bayar">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control "name="nominal_angsuran" type="text" placeholder="Nominal Angsuran">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="status" type="text" placeholder="Status">
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control "name="id_transaksi" type="text" placeholder="ID Transaksi">
+                                                <div class="modal-footer ">
+                                                    <button type="submit" class="btn btn-danger btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Tambahkan</button>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="tanggal_bayar" type="text" placeholder="Tgl Bayar">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control "name="nominal_angsuran" type="text" placeholder="Nominal Angsuran">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="status" type="text" placeholder="Status">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer ">
-                                                <button type="button" class="btn btn-danger btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Tambahkan</button>
-                                            </div>
+                                            </form>
                                         </div>
                                         <!-- /.modal-content --> 
                                     </div>
@@ -168,26 +170,28 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                 <h4 class="modal-title custom_align" id="Heading">Edit Data Angsuran</h4>
                                             </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="ID Angsuran">
+                                            <form>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input class="form-control " type="text" placeholder="ID Angsuran">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " type="text" placeholder="ID Transaksi">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " type="text" placeholder="Tgl Bayar">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " type="text" placeholder="Nominal Angsuran">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " type="text" placeholder="Status">
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="ID Transaksi">
+                                                <div class="modal-footer ">
+                                                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Tgl Bayar">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Nominal Angsuran">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " type="text" placeholder="Status">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer ">
-                                                <button type="button" class="btn btn-primary btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-                                            </div>
+                                            </form>
                                         </div>
                                         <!-- /.modal-content --> 
                                     </div>

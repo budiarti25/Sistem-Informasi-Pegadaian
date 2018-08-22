@@ -14,13 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import tools.HibernateUtil;
 
 /**
  *
- * @author budiarti
+ * @author misbah alkhafadh
  */
-public class LoginServlet2 extends HttpServlet {
+public class LoginAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +38,7 @@ public class LoginServlet2 extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            AkunController ac = new AkunController(HibernateUtil.getSessionFactory());
+            AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
             if (user.equals("") || pass.equals("")) {
                 out.println("Login Gagal,no character");
                 response.sendRedirect("form/loginAdmin.jsp");
