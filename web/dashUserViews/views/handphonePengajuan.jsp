@@ -4,6 +4,8 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="tools.HibernateUtil"%>
+<%@page import="controllers.BarangController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -180,18 +182,23 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="../../PengajuanPengajuan">
+                                                        <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
+                                                            String id = bc.AutoId();
+                                                        %>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" name="txtPengajuan" hidden="">
+                                                                    <input type="text" class="form-control" name="txtBarang" hidden="">
+                                                                    <input type="text" class="form-control" name="txtNik">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" name="txtTanggal">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -199,7 +206,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" name="txtNama">
                                                                 </div>
                                                             </div>
                                                         </div>

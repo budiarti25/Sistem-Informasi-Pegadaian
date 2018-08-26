@@ -133,10 +133,11 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                 <h4 class="modal-title custom_align" id="Heading">Data Transaksi</h4>
                                             </div>
-                                            <form>
+                                            <form method="post" action="../TransaksiServlet">
+                                                
                                                 <div class="modal-body">
                                                     <div class="form-group">
-                                                        <input class="form-control " name="id_transaksi" type="hidden" value="" placeholder="ID Transaksi">
+                                                        <input class="form-control " name="id_transaksi" type="text" placeholder="ID Transaksi" readonly="">
                                                     </div>
                                                     <div class="form-group">
                                                         <input class="form-control " name="id_pengajuan" type="text" placeholder="ID Pengajuan">

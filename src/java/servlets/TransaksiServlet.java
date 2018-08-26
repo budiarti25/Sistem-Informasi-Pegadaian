@@ -34,7 +34,7 @@ public class TransaksiServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("id_barang");
+        String id = request.getParameter("id_transaksi");
         String id_pnj = request.getParameter("id_pengajuan");
         String tanggal = request.getParameter("tanggal_transaksi");
         String dana = request.getParameter("dana_cair");

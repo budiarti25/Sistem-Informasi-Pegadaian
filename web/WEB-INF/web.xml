@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>AkunViewServlet</servlet-name>
         <servlet-class>servlets.AkunViewServlet</servlet-class>
@@ -32,6 +35,11 @@
         <servlet-name>LoginUser</servlet-name>
         <servlet-class>servlets.LoginUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WSPegadaian</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AkunViewServlet</servlet-name>
         <url-pattern>/akunViewServlet</url-pattern>
@@ -63,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>LoginUser</servlet-name>
         <url-pattern>/loginUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WSPegadaian</servlet-name>
+        <url-pattern>/WSPegadaian</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
