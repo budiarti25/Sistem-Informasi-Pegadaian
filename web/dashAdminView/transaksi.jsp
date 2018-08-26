@@ -136,7 +136,7 @@
                                             <form>
                                                 <div class="modal-body">
                                                     <div class="form-group">
-                                                        <input class="form-control " name="id_transaksi" type="text" placeholder="ID Transaksi">
+                                                        <input class="form-control " name="id_transaksi" type="hidden" value="" placeholder="ID Transaksi">
                                                     </div>
                                                     <div class="form-group">
                                                         <input class="form-control " name="id_pengajuan" type="text" placeholder="ID Pengajuan">
