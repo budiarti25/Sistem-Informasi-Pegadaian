@@ -6,6 +6,7 @@
 package controllers;
 
 import entities.Merk;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -46,10 +47,10 @@ public class MerkControllerTest {
     @Test
     public void testSaveOrEdit() {
         System.out.println("saveOrEdit");
-        String merkId = "1";
-        String namaMerk = "Samsung Galaxy J1";
+        String merkId = "M50";
+        String namaMerk = "test";
         MerkController instance = new MerkController(HibernateUtil.getSessionFactory());
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.saveOrEdit(merkId, namaMerk);
         assertEquals(expResult, result);
         
@@ -61,9 +62,9 @@ public class MerkControllerTest {
     @Test
     public void testDropData() {
         System.out.println("dropData");
-        String merkId = "1";
+        String merkId = "M50";
         MerkController instance = new MerkController(HibernateUtil.getSessionFactory());
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.dropData(merkId);
         assertEquals(expResult, result);
         
@@ -75,10 +76,11 @@ public class MerkControllerTest {
     @Test
     public void testSearch() {
         System.out.println("search");
-        String category = "1";
+        String category = "M1";
         String data = "id_merk";
         MerkController instance = new MerkController(HibernateUtil.getSessionFactory());
-        List<Merk> expResult = null;
+        List<Merk> expResult = new ArrayList<>();
+        expResult.add(new Merk(new String("M1")));
         List<Merk> result = instance.search(category, data);
         assertEquals(expResult, result);
         
@@ -91,7 +93,7 @@ public class MerkControllerTest {
     public void testGetAll() {
         System.out.println("getAll");
         MerkController instance = new MerkController(HibernateUtil.getSessionFactory());
-        List<Merk> expResult = null;
+        List<Merk> expResult = instance.getAll();
         List<Merk> result = instance.getAll();
         assertEquals(expResult, result);
         
@@ -103,10 +105,10 @@ public class MerkControllerTest {
     @Test
     public void testFindByID() {
         System.out.println("findByID");
-        String merkId = "1";
+        String merkId = "M1";
         MerkController instance = new MerkController(HibernateUtil.getSessionFactory());
-        Object expResult = null;
-        Object result = instance.findByID(merkId);
+        Merk expResult = new Merk(new String("M1"));
+        Merk result = (Merk) instance.findByID(merkId);
         assertEquals(expResult, result);
         
     }
