@@ -138,8 +138,19 @@
                                         <a class="dropdown-item" href="#">Another One</a>
                                     </div>
                                 </li>
+                                <%
+                                    response.setHeader("Cache-Control", "no-cache");
+                                    response.setHeader("Cache-Control", "no-store");
+                                    response.setHeader("Pragma", "no-cache");
+                                    response.setDateHeader("Expires", 0);
+                                    if (session != null) {
+                                        if (session.getAttribute("name") == null) {
+                                            response.sendRedirect(request.getContextPath() + "/userViews/index.jsp");
+                                        }
+                                    }
+                                %>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="../../userViews/index.jsp">
                                         <i class="material-icons" data-toggle="tooltip" data-placement="top" title="Logout">power_settings_new</i>
                                     </a>
                                 </li>
@@ -197,11 +208,11 @@
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="../assets/demo/demo.js"></script>
         <script>
-                        $(document).ready(function () {
-                            // Javascript method's body can be found in assets/js/demos.js
-                            md.initDashboardPageCharts();
+                                $(document).ready(function () {
+                                    // Javascript method's body can be found in assets/js/demos.js
+                                    md.initDashboardPageCharts();
 
-                        });
+                                });
         </script>
 
     </body>

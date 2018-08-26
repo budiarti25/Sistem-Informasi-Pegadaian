@@ -55,7 +55,7 @@ public class TransaksiController {
         return this.dAO.getById(transaksiId);
     }
     
-    public String AutoId(){
+    public Object AutoId(){
         Transaksi transaksi = new Transaksi();
         return this.dAO.getAutoId();
     }

@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controllers.BarangController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,12 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tools.HibernateUtil;
 
 /**
  *
  * @author budiarti
  */
-public class PerhiasanSave extends HttpServlet {
+public class TambahPerhiasan extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +34,28 @@ public class PerhiasanSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String idB = request.getParameter("id_barang");
-        String idM = request.getParameter("id_merk");
+        String id = request.getParameter("txtIdBarang");
         String jenis = request.getParameter("cbxJenis");
-        String bersih = request.getParameter("txtBersih");
-        String kotor = request.getParameter("txtKotor");
-        String karat = request.getParameter("txtKadar");
-        String deskripsi = karat+";"+bersih+";"+kotor;
-        int harga = (int) (((80*500000)/100)*Float.parseFloat(bersih));
-        String foto = request.getParameter("foto");
+        String karat = request.getParameter("cbxKarat");
+        String berat1 = request.getParameter("txtKotor");
+        String berat2= request.getParameter("txtBersih");
+        String nm= karat+" ; "+berat1+" ; "+berat2;
+        int harga = (Integer.parseInt(berat2)*650000);
+        String foto = request.getParameter("fileUpload");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            out.println(idB);
-            out.println(idM);
+            out.println(id);
             out.println(jenis);
-            out.println(deskripsi);
+            out.println(nm);
             out.println(harga);
             out.println(foto);
+//            BarangController ac = new BarangController(HibernateUtil.getSessionFactory());
+//            if (ac.saveOrEdit(id, jenis,Integer.toString(harga), nm, foto)) {
+//                out.print("success added");
+//            }else{
+//                out.print("failed");
+//            }
         }
     }
 

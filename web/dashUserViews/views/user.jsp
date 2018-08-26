@@ -30,7 +30,6 @@
     <body>
         <%
             String user = session.getAttribute("name").toString();
-           
             Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
         %>
         <div class="wrapper ">

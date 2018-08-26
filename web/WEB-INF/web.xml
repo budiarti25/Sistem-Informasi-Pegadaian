@@ -32,30 +32,6 @@
         <servlet-name>LoginUser</servlet-name>
         <servlet-class>servlets.LoginUser</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>MerkElektronik</servlet-name>
-        <servlet-class>servlets.MerkElektronik</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PengajuanLaptop</servlet-name>
-        <servlet-class>servlets.PengajuanLaptop</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PengajuanPerhiasan</servlet-name>
-        <servlet-class>servlets.PengajuanPerhiasan</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PengajuanElektronik</servlet-name>
-        <servlet-class>servlets.PengajuanElektronik</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PengajuanHandphone</servlet-name>
-        <servlet-class>servlets.PengajuanHandphone</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PengajuanKendaraan</servlet-name>
-        <servlet-class>servlets.PengajuanKendaraan</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>AkunViewServlet</servlet-name>
         <url-pattern>/akunViewServlet</url-pattern>
@@ -87,30 +63,6 @@
     <servlet-mapping>
         <servlet-name>LoginUser</servlet-name>
         <url-pattern>/loginUser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MerkElektronik</servlet-name>
-        <url-pattern>/merkElektronik</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PengajuanLaptop</servlet-name>
-        <url-pattern>/pengajuanLaptop</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PengajuanPerhiasan</servlet-name>
-        <url-pattern>/pengajuanPerhiasan</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PengajuanElektronik</servlet-name>
-        <url-pattern>/pengajuanElektronik</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PengajuanHandphone</servlet-name>
-        <url-pattern>/pengajuanHandphone</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PengajuanKendaraan</servlet-name>
-        <url-pattern>/pengajuanKendaraan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

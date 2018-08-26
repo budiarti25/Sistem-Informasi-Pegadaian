@@ -39,7 +39,7 @@
             <div class="container-login100" style="background-image: url('images/img-01.jpg');">
                 <div class="wrap-login100 p-t-70 p-b-30">
                     <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory()); %>
-                    <form class="login100-form validate-form" action="../loginServlet2" method="Post" name="login">
+                    <form class="login100-form validate-form" action="../loginAdminServlet" method="Post" name="login">
                         <div class="login100-form-avatar">
                             <img src="images/lock.jpg" alt="AVATAR">
                         </div>
@@ -55,6 +55,7 @@
                                 <i class="fa fa-user"></i>
                             </span>
                         </div>
+
                         <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
                             <input class="input100" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>

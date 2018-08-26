@@ -4,9 +4,6 @@
     Author     : misbah alkhafadh
 --%>
 
-<%@page import="controllers.PengajuanController"%>
-<%@page import="entities.Akun"%>
-<%@page import="controllers.AkunController"%>
 <%@page import="entities.Barang"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
@@ -33,13 +30,6 @@
         <link href="../assets/demo/demo.css" rel="stylesheet" />
     </head>
     <body>
-        <%
-            String user = session.getAttribute("name").toString();
-            Akun akun = (Akun) new AkunController(HibernateUtil.getSessionFactory()).findByID(user);
-          
-            String cek = session.getAttribute("barang").toString();
-            Barang barang = (Barang) new BarangController(HibernateUtil.getSessionFactory()).findByID(cek);
-        %>
         <div class="wrapper ">
             <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                 <!--
@@ -173,22 +163,16 @@
                                         <div class="nav-tabs-navigation">
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
-                                                <ul class="nav nav-tabs" data-tabs="tabs">
-                                                    <li class="nav-item col-md-4">
-                                                        <a class="nav-link active" href="#step-1" data-toggle="tab" style="text-align: center">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="nav-item col-md-6">
+                                                        <a class="nav-link active" href="perhiasan.jsp" style="text-align: center">
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
-                                                    <li class="nav-item col-md-4">
-                                                        <a class="nav-link" href="#step-2" data-toggle="tab" style="text-align: center">
+                                                    <li class="nav-item col-md-6" >
+                                                        <a class="nav-link" href="perhiasanPengajuan.jsp" style="text-align: center">
                                                             Langkah 2
-                                                            <div class="ripple-container"></div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item col-md-4">
-                                                        <a class="nav-link" href="#step-3" data-toggle="tab" style="text-align: center">
-                                                            Langkah 3
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
@@ -199,7 +183,7 @@
 
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="step-1">
+                                            <div class="tab-pane active">
                                                 <div class="card-body">
                                                     <form method="post" action="../../perhiasanSave">
                                                         <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
@@ -267,49 +251,6 @@
                                                         </div>
                                                         <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
                                                         <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane" id="step-2">
-                                                <div class="card-body">
-                                                    <form method="post" action="pengajuanPerhiasan">
-                                                        <% PengajuanController pj = new PengajuanController(HibernateUtil.getSessionFactory());
-                                                            String idPn = pj.AutoId();
-                                                        %>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">NIK</label>
-                                                                    <input type="hidden" name="txtBarang" value="<%= barang.getIdBarang() %>" />
-                                                                    <input type="hidden" name="txtPengajuan" value="<%= idPn %>" />
-                                                                    <input type="text" name="txtNik" class="form-control" readonly="readonly" value="<%= akun.getNik() %>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tanggal Pengajuan</label>
-                                                                    <input type="text" name="txtNama" value="" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Nama</label>
-                                                                    <input type="text" name="txtNama" class="form-control" readonly="readonly" value="<%= akun.getNama() %>">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
-                                                        <div class="clearfix"></div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="step-3">
-                                                <div class="card-body">
-                                                    <form>
-                                                        <p>success...........</p>
                                                     </form>
                                                 </div>
                                             </div>

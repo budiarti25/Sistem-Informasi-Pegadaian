@@ -7,8 +7,8 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +16,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author budiarti
+ * @author misbah alkhafadh
  */
-public class PerhiasanSave extends HttpServlet {
+@WebServlet(name = "LogoutUserServlet", urlPatterns = {"/logoutUserServlet"})
+public class LogoutUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +33,12 @@ public class PerhiasanSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String idB = request.getParameter("id_barang");
-        String idM = request.getParameter("id_merk");
-        String jenis = request.getParameter("cbxJenis");
-        String bersih = request.getParameter("txtBersih");
-        String kotor = request.getParameter("txtKotor");
-        String karat = request.getParameter("txtKadar");
-        String deskripsi = karat+";"+bersih+";"+kotor;
-        int harga = (int) (((80*500000)/100)*Float.parseFloat(bersih));
-        String foto = request.getParameter("foto");
-        HttpSession session = request.getSession();
-        RequestDispatcher dispatcher = null;
+        HttpSession session = request.getSession(false);
         try (PrintWriter out = response.getWriter()) {
-            out.println(idB);
-            out.println(idM);
-            out.println(jenis);
-            out.println(deskripsi);
-            out.println(harga);
-            out.println(foto);
+            session.setAttribute("name", null);
+//		session.removeAttribute("name");
+		session.getMaxInactiveInterval();
+                
         }
     }
 

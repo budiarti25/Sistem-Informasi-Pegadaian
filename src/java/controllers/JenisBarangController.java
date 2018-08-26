@@ -45,7 +45,6 @@ public class JenisBarangController {
         return this.convertToListJenis(this.dAO.search(category, data));
     }
     
-    
     public List<JenisBarang> getAll(){
         return this.convertToListJenis(this.dAO.getAll());
     }

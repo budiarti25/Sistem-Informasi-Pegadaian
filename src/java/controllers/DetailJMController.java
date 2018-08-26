@@ -47,10 +47,6 @@ public class DetailJMController {
         return this.convertToListDetail(this.dAO.search(category, data));
     }
     
-    public DetailJenisMerk search2(String category, String data) {
-        return (DetailJenisMerk) this.dAO.search2(category, data);
-    }
-    
     public List<DetailJenisMerk> getAll(){
         return this.convertToListDetail(this.dAO.getAll());
     }

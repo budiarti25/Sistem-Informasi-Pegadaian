@@ -42,14 +42,17 @@ public class AdminProfile extends HttpServlet {
         String kec = request.getParameter("txtKec");
         String kab = request.getParameter("txtKab");
         String prov = request.getParameter("txtProv");
+       // String role = request.getParameter("txtRole");
         String user = request.getParameter("txtEmail");
         String pass = request.getParameter("txtPass");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
             AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
-            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "A")) {
-                out.print("success Edit");
+            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, kec, kab, prov, user, pass, "A")) {
+                out.print("success added");
+//                session.setAttribute("name", user);
+//                response.sendRedirect("dashAdminView/userProfile.jsp");
             }else{
                 out.print("failed");
             }

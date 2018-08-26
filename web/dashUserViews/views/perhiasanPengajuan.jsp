@@ -1,15 +1,9 @@
 <%-- 
-    Document   : laptop
-    Created on : Aug 15, 2018, 8:33:23 AM
+    Document   : perhiasanPengajuan
+    Created on : Aug 26, 2018, 11:18:41 AM
     Author     : misbah alkhafadh
 --%>
 
-<%@page import="entities.DetailJenisMerk"%>
-<%@page import="controllers.DetailJMController"%>
-<%@page import="controllers.JenisBarangController"%>
-<%@page import="controllers.MerkController"%>
-<%@page import="controllers.BarangController"%>
-<%@page import="tools.HibernateUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +13,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            Pengajuan Gadai Laptop
+            Pengajuan Gadai Perhiasan
         </title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
         <!--     Fonts and icons     -->
@@ -57,7 +51,7 @@
                                 <p>User Profile</p>
                             </a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item active">
                             <a class="nav-link" href="perhiasan.jsp">
                                 <i class="material-icons">attach_money</i>
                                 <p>Perhiasan</p>
@@ -75,7 +69,7 @@
                                 <p>Handphone</p>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="laptop.jsp">
                                 <i class="material-icons">laptop</i>
                                 <p>Laptop</p>
@@ -101,7 +95,7 @@
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#">Pengajuan Gadai Laptop</a>
+                            <a class="navbar-brand" href="#">Pengajuan Gadai Perhiasan</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
@@ -164,15 +158,15 @@
                                         <div class="nav-tabs-navigation">
                                             <div class="nav-tabs-wrapper">
                                                 <!--<span class="nav-tabs-title">Pengajuan Gadai:</span>-->
-                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                <ul class="nav nav-tabs">
                                                     <li class="nav-item col-md-6">
-                                                        <a class="nav-link active" href="laptop.jsp" style="text-align: center">
+                                                        <a class="nav-link " href="perhiasan.jsp" style="text-align: center">
                                                             Langkah 1
                                                             <div class="ripple-container"></div>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item col-md-6">
-                                                        <a class="nav-link" href="laptopPengajuan.jsp" style="text-align: center">
+                                                        <a class="nav-link active" href="perhiasanPengajuan.jsp" style="text-align: center">
                                                             Langkah 2
                                                             <div class="ripple-container"></div>
                                                         </a>
@@ -186,79 +180,31 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active">
                                                 <div class="card-body">
-                                                    <form method="post" action="laptopSave">
-                                                        <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
-                                                            String id = bc.AutoId();
-                                                        %>
+                                                    <form>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="hidden" name="id_barang" value="<%= id%>">
-                                                                    <input type="hidden" name="id_jenis" value="JN7">
-                                                                    <select class="form-control" name="cbxJenis">
-                                                                        <option disabled="" selected="0">Merk Laptop</option>
-                                                                        <%
-                                                                            DetailJMController jbc = new DetailJMController(HibernateUtil.getSessionFactory());
-                                                                            for (DetailJenisMerk djm : jbc.search("Id_jenis", "JN7")) {
-                                                                        %>
-                                                                        <option value="<%= djm.getIdJenis()%>,<%= djm.getIdDetail()%>"><%= djm.getIdMerk().getNamaMerk() %></option>
-                                                                        <% }
-                                                                        %>
-                                                                    </select>
+                                                                    <label class="bmd-label-floating">NIK</label>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tipe</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <label class="bmd-label-floating">Tanggal Pengajuan</label>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="bmd-label-floating">Kapasitas Hardisk</label>
-                                                                    <input type="text" name="" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Tahun Pembelian</label>
-                                                                    <input type="text" name="" class="form-control">
+                                                                    <label class="bmd-label-floating">Nama</label>
+                                                                    <input type="text" class="form-control">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="bmd-label-floating">Harga Jual</label>
-                                                                    <input type="text" name="" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Upload  -->
-                                                        <div class="row">
-                                                            <div id="file-upload-form" class="uploader">
-                                                                <input id="file-upload" type="file" name="foto" accept="image/*" />
-
-                                                                <label for="file-upload" id="file-drag">
-                                                                    <img id="file-image" src="#" alt="Preview" class="hidden">
-                                                                    <div id="start">
-                                                                        <i class="material-icons" aria-hidden="true">cloud_upload</i>
-                                                                        <div>Select a file or drag here</div>
-                                                                        <div id="notimage" class="hidden">Please select an image</div>
-                                                                        <span id="file-upload-btn" class="btn btn-primary">Upload Foto</span>
-                                                                    </div>
-                                                                    <div id="response" class="hidden">
-                                                                        <div id="messages"></div>
-                                                                        <progress class="progress" id="file-progress" value="0">
-                                                                            <span>0</span>%
-                                                                        </progress>
-                                                                    </div>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <button id="activate-step-2" class="btn btn-primary pull-right" style="background: #00bcd4">Simpan</button>
+                                                        <button type="submit" class="btn btn-primary pull-right" style="background: #00bcd4">Pengajuan</button>
+                                                        <div class="clearfix"></div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -306,8 +252,6 @@
 
                                 });
         </script>
-        <script type="text/javascript">
-
-        </script>
     </body>
 </html>
+

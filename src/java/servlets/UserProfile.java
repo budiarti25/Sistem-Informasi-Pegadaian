@@ -48,8 +48,10 @@ public class UserProfile extends HttpServlet {
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
             AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
-            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, alamat, kab, prov, user, pass, "U")) {
+            if (ac.saveOrEdit(nik, nama, jk.charAt(0), alamat, rtrw, desa, kec, kab, prov, user, pass, "U")) {
                 out.print("success added");
+//                session.setAttribute("name", user);
+//                response.sendRedirect("dashUserViews/views/user.jsp");
             }else{
                 out.print("failed");
             }

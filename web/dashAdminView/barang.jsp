@@ -87,8 +87,8 @@
                     <div class="row">
                         <div class="col-md-12" style="padding-bottom: 10px">
                             <div class="col-md-6"></div>
-                            <div class="col-md-6" style="padding-left: 365px">
-                                <button class="btn btn-success"><i class="fa fa-bookmark"></i> Laporan Data</button>
+                            <div class="col-md-6" >
+                                <button class="btn btn-success" style="float: right"><i class="fa fa-bookmark"></i> Laporan Data</button>
                             </div>
                         </div>
                         <!-- Advanced Tables -->                                

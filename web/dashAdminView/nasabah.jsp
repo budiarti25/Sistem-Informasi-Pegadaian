@@ -89,15 +89,15 @@
                             <div class="col-md-6">
                                 <button class="btn btn-primary" data-title="Tambah" data-toggle="modal" data-target="#insert"><i class="fa fa-plus"></i> Tambah Data</button>
                             </div>
-                            <div class="col-md-6" style="padding-left: 365px">
-                                <button class="btn btn-success"><i class="fa fa-bookmark"></i> Laporan Data</button>
+                            <div class="col-md-6" >
+                                <button class="btn btn-success" style="float: right"><i class="fa fa-bookmark"></i> Laporan Data</button>
                             </div>
                         </div>
                         <!-- Advanced Tables -->                                
-                        <div class="panel-body">
-                            <div class="table-responsive">
+                        <div class="panel-body" >
+                            <div class="table-responsive" >
                                 <% AkunController ac = new AkunController(HibernateUtil.getSessionFactory());%>
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="overflow-x:auto;">
                                     <thead>
                                         <tr>
                                             <th>NIK</th>

@@ -40,7 +40,7 @@ public class TransaksiDAO {
         return this.fdao.getById(id);
     }
     
-    public String getAutoId(){
-        return (String) this.fdao.getById("select concat('TR',LPAD(to_number(substr(max(id_transaksi),3,2))+1,1,'0')) from transaksi");
+    public Object getAutoId(){
+        return this.fdao.getById("select concat('TR',LPAD(to_number(substr(max(id_transaksi),3,2))+1,1,'0')) from transaksi");
     }
 }

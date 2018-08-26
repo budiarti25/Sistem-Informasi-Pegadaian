@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author misbah alkhafadh
  */
+@WebServlet(name = "LoginAdminServlet", urlPatterns = {"/loginAdminServlet"})
 public class LoginAdminServlet extends HttpServlet {
 
     /**
@@ -41,13 +43,15 @@ public class LoginAdminServlet extends HttpServlet {
             AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
             if (user.equals("") || pass.equals("")) {
                 out.println("Login Gagal,no character");
+                System.out.println("Login Gagal,no character");
                 response.sendRedirect("form/loginAdmin.jsp");
             }else{
-                if (ac.login1("username", user, pass)) {
+                System.out.println("masuk "+user+", "+pass);
+                if (ac.login1("username", user, pass)){
                     session.setAttribute("name", user);
                     response.sendRedirect("dashAdminView/dashboardAdmin.jsp");
                 } else {
-                    out.println("Login Gagal");
+                    System.out.println("Login Gagal");
                     response.sendRedirect("form/loginAdmin.jsp");
                 }
             }

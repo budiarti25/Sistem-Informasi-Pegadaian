@@ -2,15 +2,12 @@
 package servlets;
 
 import controllers.BarangController;
-import controllers.DetailJMController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import tools.HibernateUtil;
 
 /**
@@ -31,24 +28,18 @@ public class ElektronikSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            String idB = request.getParameter("id_barang");
             String jenis = request.getParameter("cbxJenis");
             String merk = request.getParameter("cbxMerk");
             String tipe = request.getParameter("txtTipe");
-            String detail = null;
+//            String jaminan = request.getParameter("txtJaminan");
             String kondisi = request.getParameter("txtKondisi");
             String jual = request.getParameter("txtJual");
-            String gambar = request.getParameter("foto");
+            String gambar = request.getParameter("txtGambar");
             String desk = tipe+";"+kondisi;
-            HttpSession session = request.getSession();
-            RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
-             detail = djmc.search2(jenis, merk).getIdDetail();
             BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
-            if (bc.saveOrEdit(idB, detail, jual, gambar, desk)) {
+            if (bc.saveOrEdit(jenis, merk, jual, gambar, desk)) {
                 out.println("Berhasil");
-                session.setAttribute("id_barang", idB);
             }
             else
             {

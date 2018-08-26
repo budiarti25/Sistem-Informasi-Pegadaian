@@ -41,10 +41,7 @@ public class TransaksiServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            out.println(id);
-            out.println(id_pnj);
-            out.println(tanggal);
-            out.println(dana);
+            
             TransaksiController tc = new TransaksiController(HibernateUtil.getSessionFactory());
 //            if (tc.saveOrEdit(id, id_pnj, to_date(tanggal), dana)) {
 //                out.print("success added");
