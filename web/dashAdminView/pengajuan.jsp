@@ -1,12 +1,13 @@
 <%-- 
-    Document   : angsuran
-    Created on : Aug 18, 2018, 12:20:55 PM
+    Document   : pengajuan
+    Created on : Aug 26, 2018, 9:20:29 PM
     Author     : misbah alkhafadh
 --%>
 
-<%@page import="entities.Angsuran"%>
-<%@page import="controllers.AngsuranController"%>
+<%@page import="entities.Pengajuan"%>
+<%@page import="controllers.PengajuanController"%>
 <%@page import="tools.HibernateUtil"%>
+<%@page import="entities.Transaksi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -61,13 +62,13 @@
                             <a href="nasabah.jsp"><i class="fa fa-users fa-3x"></i> Nasabah </a>
                         </li>
                         <li>
-                            <a href="pengajuan.jsp"><i class="fa fa-cogs fa-3x"></i> Pengajuan </a>
+                            <a class="active-menu" href="pengajuan.jsp"><i class="fa fa-cogs fa-3x"></i> Pengajuan </a>
                         </li>
                         <li>
                             <a href="transaksi.jsp"><i class="fa fa-cogs fa-3x"></i> Transaksi </a>
                         </li>	
                         <li>
-                            <a class="active-menu" href="angsuran.jsp"><i class="fa fa-dollar fa-3x"></i> Angsuran </a>
+                            <a href="angsuran.jsp"><i class="fa fa-dollar fa-3x"></i> Angsuran </a>
                         </li>
                         <li>
                             <a  href="barang.jsp"><i class="fa fa-archive fa-3x"></i> Barang </a>
@@ -80,7 +81,7 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Data Angsuran Nasabah</h2>   
+                            <h2>Data Transaksi Nasabah</h2>   
                             <h5>Welcome Jhon Deo , Love to see you back. </h5>
                         </div>
                     </div>
@@ -99,28 +100,28 @@
                         <!-- Advanced Tables -->                                
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <% AngsuranController ac = new AngsuranController(HibernateUtil.getSessionFactory());%>
+                                <% PengajuanController pc = new PengajuanController(HibernateUtil.getSessionFactory());%>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID Angsuran</th>
-                                            <th>ID Transaksi</th>
-                                            <th>Tgl Bayar</th>
-                                            <th>Nominal Angsuran</th>
+                                            <th>ID Pengajuan</th>
+                                            <th>ID Barang</th>
+                                            <th>NIK</th>
+                                            <th>Tgl Pengajuan</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <% int i = 1;
-                                            for (Angsuran angsuran : ac.getAll()) {
-                                        %>  
+                                            for (Pengajuan pengajuan : pc.getAll()) {
+                                        %> 
                                         <tr class="odd gradeA">
-                                            <td><%= angsuran.getIdAngsuran()%></td>
-                                            <td><%= angsuran.getIdTransaksi()%></td>
-                                            <td><%= angsuran.getTanggalBayar()%></td>
-                                            <td><%= angsuran.getNominalAngsuran()%></td>
-                                            <td><%= angsuran.getStatus()%></td>
+                                            <td><%= pengajuan.getIdPengajuan()%></td>
+                                            <td><%= pengajuan.getIdBarang()%></td>
+                                            <td><%= pengajuan.getNik()%></td>
+                                            <td><%= pengajuan.getTanggalPengajuan()%></td>
+                                            <td><%= pengajuan.getStatus()%></td>
                                             <td>
                                                 <button class="btn btn-xs btn-primary center" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></button>
                                             </td>
@@ -136,24 +137,22 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title custom_align" id="Heading">Angsuran Nasabah</h4>
+                                                <h4 class="modal-title custom_align" id="Heading">Data Transaksi</h4>
                                             </div>
-                                            <form>
+                                            <form method="post" action="../TransaksiServlet">
+                                                
                                                 <div class="modal-body">
                                                     <div class="form-group">
-                                                        <input class="form-control "name="id_angsuran" readonly="" type="text" placeholder="ID Angsuran">
+                                                        <input class="form-control " name="id_transaksi" type="text" placeholder="ID Transaksi" readonly="">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control "name="id_transaksi" type="text" placeholder="ID Transaksi">
+                                                        <input class="form-control " name="id_pengajuan" type="text" placeholder="ID Pengajuan">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control " name="tanggal_bayar" type="text" placeholder="Tgl Bayar">
+                                                        <input class="form-control " name="tanggal_transaksi" type="text" placeholder="Tgl Transaksi">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control "name="nominal_angsuran" type="text" placeholder="Nominal Angsuran">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input class="form-control " name="status" type="text" placeholder="Status">
+                                                        <input class="form-control " name="dana_cair" type="text" placeholder="Dana Cair">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer ">
@@ -171,24 +170,21 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title custom_align" id="Heading">Edit Data Angsuran</h4>
+                                                <h4 class="modal-title custom_align" id="Heading">Edit Data Transaksi</h4>
                                             </div>
                                             <form>
                                                 <div class="modal-body">
                                                     <div class="form-group">
-                                                        <input class="form-control " type="text" placeholder="ID Angsuran">
-                                                    </div>
-                                                    <div class="form-group">
                                                         <input class="form-control " type="text" placeholder="ID Transaksi">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control " type="text" placeholder="Tgl Bayar">
+                                                        <input class="form-control " type="text" placeholder="ID Pengajuan">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control " type="text" placeholder="Nominal Angsuran">
+                                                        <input class="form-control " type="text" placeholder="Tgl Transaksi">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input class="form-control " type="text" placeholder="Status">
+                                                        <input class="form-control " type="text" placeholder="Dana Cair">
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer ">

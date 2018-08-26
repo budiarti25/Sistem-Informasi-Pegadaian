@@ -4,6 +4,7 @@
     Author     : misbah alkhafadh
 --%>
 
+<%@page import="controllers.PengajuanController"%>
 <%@page import="tools.HibernateUtil"%>
 <%@page import="controllers.BarangController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -183,8 +184,8 @@
                                             <div class="tab-pane active">
                                                 <div class="card-body">
                                                     <form method="post" action="../../PengajuanPerhiasan">
-                                                        <% BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
-                                                            String id = bc.AutoId();
+                                                        <% PengajuanController pc = new PengajuanController(HibernateUtil.getSessionFactory());
+                                                           String id = pc.AutoId();
                                                         %>
                                                         <div class="row">
                                                             <div class="col-md-6">

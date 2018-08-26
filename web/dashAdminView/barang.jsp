@@ -61,6 +61,9 @@
                             <a href="nasabah.jsp"><i class="fa fa-users fa-3x"></i> Nasabah </a>
                         </li>
                         <li>
+                            <a href="pengajuan.jsp"><i class="fa fa-cogs fa-3x"></i> Pengajuan </a>
+                        </li>
+                        <li>
                             <a href="transaksi.jsp"><i class="fa fa-cogs fa-3x"></i> Transaksi </a>
                         </li>	
                         <li>

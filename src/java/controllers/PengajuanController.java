@@ -56,7 +56,7 @@ public class PengajuanController {
         return this.dAO.getById(pengajuanId);
     }
     
-    public Object AutoId(){
+    public String AutoId(){
         Pengajuan pengajuan = new Pengajuan();
         return this.dAO.getAutoId();
     }

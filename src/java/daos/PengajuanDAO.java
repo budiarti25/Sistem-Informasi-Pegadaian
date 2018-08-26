@@ -40,7 +40,7 @@ public class PengajuanDAO {
         return this.fdao.getById(id);
     }
     
-    public Object getAutoId(){
-        return this.fdao.getById("select concat('P',LPAD(to_number(substr(max(id_pengajuan),3,2))+1,1,'0')) from pengajuan");
+    public String getAutoId(){
+        return (String) this.fdao.getById("select concat('P',LPAD(to_number(substr(max(id_pengajuan),3,2))+1,1,'0')) from pengajuan");
     }
 }
