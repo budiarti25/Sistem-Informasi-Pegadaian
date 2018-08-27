@@ -8,6 +8,9 @@ package servlets;
 import controllers.TransaksiController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,14 +44,17 @@ public class TransaksiServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            
             TransaksiController tc = new TransaksiController(HibernateUtil.getSessionFactory());
-//            if (tc.saveOrEdit(id, id_pnj, to_date(tanggal), dana)) {
-//                out.print("success added");
-//            }else{
-//                out.print("failed");
-//            }
-        }
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date tanggaL = (Date) dateFormat.parse(tanggal);
+            if (tc.saveOrEdit(id, id_pnj, tanggaL, dana)) {
+                response.sendRedirect("dashAdminView/transaksi.jsp");
+            }else{
+                out.print("failed");
+            }
+        }catch (Exception e) {
+             e.printStackTrace();
+         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

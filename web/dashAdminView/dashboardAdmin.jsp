@@ -4,6 +4,10 @@
     Author     : misbah alkhafadh
 --%>
 
+<% if (session.getAttribute("name")== null) {
+        response.sendRedirect("../form/loginAdmin.jsp");
+    }else{
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,7 +39,7 @@
                 <div style="color: white;
                      padding: 15px 50px 5px 50px;
                      float: right;
-                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="../logoutAdminServlet" class="btn btn-danger square-btn-adjust">Logout</a> </div>
             </nav>   
             <!-- /. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
@@ -97,3 +101,4 @@
         <script src="assets/js/custom.js"></script>
     </body>
 </html>
+<%}%>

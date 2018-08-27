@@ -4,6 +4,10 @@
     Author     : misbah alkhafadh
 --%>
 
+<% if (session.getAttribute("name")== null) {
+        response.sendRedirect("../form/loginAdmin.jsp");
+    }else{
+%>
 <%@page import="controllers.TransaksiController"%>
 <%@page import="tools.HibernateUtil"%>
 <%@page import="entities.Transaksi"%>
@@ -42,7 +46,7 @@
                 <div style="color: white;
                      padding: 15px 50px 5px 50px;
                      float: right;
-                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="../logoutAdminServlet" class="btn btn-danger square-btn-adjust">Logout</a> </div>
             </nav>   
             <!-- /. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
@@ -93,7 +97,7 @@
                                 <button class="btn btn-primary" data-title="Tambah" data-toggle="modal" data-target="#insert"><i class="fa fa-plus"></i> Tambah Data</button>
                             </div>
                             <div class="col-md-6">
-                                <button class="btn btn-success" style="float: right"><i class="fa fa-bookmark"></i> Laporan Data</button>
+                                <a href="#" class="btn btn-success" style="float: right"><i class="fa fa-bookmark"></i> Laporan Data</a>
                             </div>
                         </div>
                         <!-- Advanced Tables -->                                
@@ -222,3 +226,4 @@
         <script src="assets/js/custom.js"></script>
     </body>
 </html>
+<%}%>

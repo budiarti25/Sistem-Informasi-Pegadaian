@@ -43,4 +43,8 @@ public class DetailJenisMerkDAO {
     public Object getAutoId(){
         return this.fdao.getById("select concat('JM',LPAD(to_number(substr(max(id_detail),3,2))+1,1,'0')) from detail_jenis_merk");
     }
+    
+    public DetailJenisMerk search2(String data, String data1){
+        return (DetailJenisMerk) this.fdao.getById("FROM DetailJenisMerk WHERE idJenis = '"+data+"' and idMerk = '"+data1+"'");
+    }
 }

@@ -71,8 +71,8 @@
                         </div>
 
                         <div class="text-center w-full p-t-25 p-b-25">
-                            <a href="#" class="txt1">
-                                Forgot Username / Password?
+                            <a href="../userViews/index.jsp" class="txt1">
+                                Pegadaian
                             </a>
                         </div>
 

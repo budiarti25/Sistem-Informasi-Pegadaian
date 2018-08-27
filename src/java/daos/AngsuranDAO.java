@@ -6,8 +6,14 @@
 package daos;
 
 import entities.Angsuran;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.SessionFactory;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
+import tools.HibernateUtil;
 
 /**
  *
@@ -45,5 +51,25 @@ public class AngsuranDAO {
     
     public Object getAutoId(){
         return this.fdao.getById("select concat('AN',LPAD(to_number(substr(max(id_angsuran),3,2))+1,1,'0')) from angsuran");
+    }
+    
+     public boolean insertAngsuran(Angsuran angsuran)throws SQLException{
+        boolean flag = false;
+        try {
+            Connection con = HibernateUtil.getSessionFactory()
+                    .getSessionFactoryOptions().getServiceRegistry()
+                    .getService(ConnectionProvider.class).getConnection();
+            con.createStatement().execute("alter session set current_schema=pegadaian");
+            CallableStatement cs = con.prepareCall("{Call tambahAngsuran(?,?,?)}");
+//            cs.setString(1, angsuran.getIdAngsuran());
+            cs.setString(1, angsuran.getIdTransaksi().getIdTransaksi());
+            cs.setDate(2, (Date) angsuran.getTanggalBayar());
+            cs.setLong(3, angsuran.getNominalAngsuran());
+            cs.execute();
+            flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 }

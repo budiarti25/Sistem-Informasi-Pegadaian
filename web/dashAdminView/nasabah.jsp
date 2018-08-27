@@ -4,6 +4,10 @@
     Author     : misbah alkhafadh
 --%>
 
+<% if (session.getAttribute("name") == null) {
+        response.sendRedirect("../form/loginAdmin.jsp");
+    } else {
+%>
 <%@page import="entities.Akun"%>
 <%@page import="tools.HibernateUtil"%>
 <%@page import="controllers.AkunController"%>
@@ -42,7 +46,7 @@
                 <div style="color: white;
                      padding: 15px 50px 5px 50px;
                      float: right;
-                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                     font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="../logoutAdminServlet" class="btn btn-danger square-btn-adjust">Logout</a> </div>
             </nav>   
             <!-- /. NAV TOP  -->
             <nav class="navbar-default navbar-side" role="navigation">
@@ -147,53 +151,53 @@
                                                 <h4 class="modal-title custom_align" id="Heading">Masukan Data Nasabah</h4>
                                             </div>
                                             <form method="post" action="../nasabahServlet">
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtNik" type="text" placeholder="NIK">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="form-group col-md-3">
-                                                        <div class="radio">
-                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtNik" type="text" placeholder="NIK">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-group col-md-3">
+                                                            <div class="radio">
+                                                                <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="radio">
+                                                                <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <div class="radio">
-                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="alamat" type="text" placeholder="Alamat">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="rt_rw" type="text" placeholder="RT/RW">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="desa" type="text" placeholder="Desa">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtKec" type="text" placeholder="Kecamatan">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtKab" type="text" placeholder="Kabupaten">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtProv" type="text" placeholder="Provinsi">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtEmail" type="text" placeholder="Username">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtPass" type="text" placeholder="Password">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="alamat" type="text" placeholder="Alamat">
+                                                <div class="modal-footer ">
+                                                    <button type="submit" class="btn btn-danger btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Tambahkan</button>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="rt_rw" type="text" placeholder="RT/RW">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="desa" type="text" placeholder="Desa">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtKec" type="text" placeholder="Kecamatan">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtKab" type="text" placeholder="Kabupaten">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtProv" type="text" placeholder="Provinsi">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtEmail" type="text" placeholder="Username">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtPass" type="text" placeholder="Password">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer ">
-                                                <button type="submit" class="btn btn-danger btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Tambahkan</button>
-                                            </div>
                                             </form>
                                         </div>
                                         <!-- /.modal-content --> 
@@ -212,47 +216,47 @@
                                                 <%
                                                     Akun akn = new Akun();
                                                 %>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtNik" type="text" placeholder="NIK" value="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="form-group col-md-3">
-                                                        <div class="radio">
-                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtNik" type="text" placeholder="NIK" value="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="nama" type="text" placeholder="Nama Lengkap">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-group col-md-3">
+                                                            <div class="radio">
+                                                                <input type="radio" name="jenis_kelamin" id="optionsRadios1" value="option1" checked />Laki-laki
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="radio">
+                                                                <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <div class="radio">
-                                                            <input type="radio" name="jenis_kelamin" id="optionsRadios2" value="option2"/>Perempuan
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="alamat" type="text" placeholder="Alamat">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="rt_rw" type="text" placeholder="RT/RW">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="desa" type="text" placeholder="Desa">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtKec" type="text" placeholder="Kecamatan">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtKab" type="text" placeholder="Kabupaten">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control " name="txtProv" type="text" placeholder="Provinsi">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="alamat" type="text" placeholder="Alamat">
+                                                <div class="modal-footer ">
+                                                    <button type="button" class="btn btn-primary btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                                                 </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="rt_rw" type="text" placeholder="RT/RW">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="desa" type="text" placeholder="Desa">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtKec" type="text" placeholder="Kecamatan">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtKab" type="text" placeholder="Kabupaten">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control " name="txtProv" type="text" placeholder="Provinsi">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer ">
-                                                <button type="button" class="btn btn-primary btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-                                            </div>
                                             </form>
                                         </div>
                                         <!-- /.modal-content --> 
@@ -288,3 +292,4 @@
         <script src="assets/js/custom.js"></script>
     </body>
 </html>
+<%}%>

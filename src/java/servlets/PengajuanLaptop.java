@@ -8,6 +8,9 @@ package servlets;
 import controllers.PengajuanController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,26 +35,30 @@ public class PengajuanLaptop extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            String Pengajuan = request.getParameter("txtPengajuan");
+            String pengajuan = request.getParameter("txtPengajuan");
             String barang = request.getParameter("txtBarang");
             String nik = request.getParameter("txtNik");
             String nama = request.getParameter("txtNama");
             String tanggal = request.getParameter("txtTanggal");
          try (PrintWriter out = response.getWriter()) {
-             out.println(Pengajuan);
-             out.println(barang);
-             out.println(nik);
-             out.println(nama);
-             out.println(tanggal);
+//             out.println(Pengajuan);
+//             out.println(barang);
+//             out.println(nik);
+//             out.println(nama);
+//             out.println(tanggal);
              PengajuanController pengajuanController = new PengajuanController(HibernateUtil.getSessionFactory());
-//            if (pengajuanController.saveOrEdit(pengajuan, nik,barang, tanggal, 'W')) {
-//                out.println("oke");
-////                response.sendRedirect("views/gadaiElektronikView.jsp");
-//            }
-//            else
-//            {
-//                out.println("Gagal");
-//            }
+             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+             Date tanggaL = (Date) dateFormat.parse(tanggal);
+            if (pengajuanController.saveOrEdit(pengajuan, nik,barang, tanggaL, 'W')) {
+                out.println("oke");
+                response.sendRedirect("dashAdminView/pengajuan.jsp");
+            }
+            else
+            {
+                out.println("Gagal");
+            }
+         }catch (Exception e) {
+             e.printStackTrace();
          }
     }
 

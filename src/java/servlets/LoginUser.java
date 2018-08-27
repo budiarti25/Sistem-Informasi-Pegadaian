@@ -34,6 +34,29 @@ public class LoginUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+//        String user = request.getParameter("username");
+//        String pass = request.getParameter("password");
+//        HttpSession session = request.getSession();
+//        RequestDispatcher dispatcher = null;
+//        try (PrintWriter out = response.getWriter()) {
+//            AkunController ac = new AkunController(tools.HibernateUtil.getSessionFactory());
+//            if (user.equals("") || pass.equals("")) {
+//                out.println("Login Gagal,no character");
+//                System.out.println("Login Gagal,no character");
+//                response.sendRedirect("form/loginUser.jsp");
+//            }else{
+//                System.out.println("masuk "+user+", "+pass);
+//                if (ac.login1("username", user, pass)){
+//                    session.setAttribute("name", user);
+//                   dispatcher = request.getRequestDispatcher("dashUserViews/views/dashboardUser.jsp");
+//                   dispatcher.include(request, response);
+//                } else {
+//                    System.out.println("Login Gagal");
+//                    response.sendRedirect("form/loginUser.jsp");
+//                }
+//            }
+//        }
+
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
         HttpSession session = request.getSession();

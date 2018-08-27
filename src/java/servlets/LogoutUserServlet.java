@@ -33,13 +33,13 @@ public class LogoutUserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(false);
-        try (PrintWriter out = response.getWriter()) {
-            session.setAttribute("name", null);
-//		session.removeAttribute("name");
-		session.getMaxInactiveInterval();
-                
-        }
+      
+      
+                PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        session.invalidate();
+        response.sendRedirect("userViews/index.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

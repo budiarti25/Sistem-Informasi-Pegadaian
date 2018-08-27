@@ -4,6 +4,11 @@
     Author     : misbah alkhafadh
 --%>
 
+<% if (session.getAttribute("name")== null) {
+        response.sendRedirect("../../form/loginUser.jsp");
+    }else{
+%>
+
 <%@page import="entities.Barang"%>
 <%@page import="controllers.BarangController"%>
 <%@page import="entities.JenisBarang"%>
@@ -144,7 +149,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="../../logoutUserServlet">
                                         <i class="material-icons" data-toggle="tooltip" data-placement="top" title="Logout">power_settings_new</i>
                                     </a>
                                 </li>
@@ -300,3 +305,4 @@
         </script>
     </body>
 </html>
+<%}%>

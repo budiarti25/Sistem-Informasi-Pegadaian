@@ -9,6 +9,7 @@ import daos.TransaksiDAO;
 import entities.Pengajuan;
 import entities.Transaksi;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -58,5 +59,10 @@ public class TransaksiController {
     public Object AutoId(){
         Transaksi transaksi = new Transaksi();
         return this.dAO.getAutoId();
+    }
+    
+    public int totalPinjam(String transaksiId, int danaCair)throws SQLException {
+        Transaksi transaksi = new Transaksi();
+        return this.dAO.Total(transaksi);
     }
 }

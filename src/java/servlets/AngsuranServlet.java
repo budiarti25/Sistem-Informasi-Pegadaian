@@ -8,6 +8,9 @@ package servlets;
 import controllers.AngsuranController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,11 +37,24 @@ public class AngsuranServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String id = request.getParameter("id_angsuran");
+        String id_tr = request.getParameter("id_transaksi");
+        String tanggal = request.getParameter("tanggal_bayar");
+        String dana = request.getParameter("nominal_bayar");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
         try (PrintWriter out = response.getWriter()) {
-            AngsuranController angsuranController = new AngsuranController(HibernateUtil.getSessionFactory());
-        }
+            AngsuranController tc = new AngsuranController(HibernateUtil.getSessionFactory());
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date tanggaL = (Date) dateFormat.parse(tanggal);
+            if (tc.SaveAngsuran(id, id_tr, tanggaL, dana,'B')) {
+                response.sendRedirect("dashAdminView/angsuran.jsp");
+            }else{
+                out.print("failed");
+            }
+        }catch (Exception e) {
+             e.printStackTrace();
+         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

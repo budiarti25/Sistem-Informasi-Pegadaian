@@ -10,6 +10,7 @@ import entities.Angsuran;
 import entities.Transaksi;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 import org.hibernate.SessionFactory;
 
@@ -61,5 +62,10 @@ public class AngsuranController {
     public Object AutoId(){
         Angsuran angsuran = new Angsuran();
         return this.dAO.getAutoId();
+    }
+    
+    public boolean SaveAngsuran(String angsuranId, String transaksiId, Date tanggal, String nominal, char status)throws SQLException {
+        Angsuran angsuran = new Angsuran(angsuranId,tanggal, Long.parseLong(nominal), status, new Transaksi(transaksiId));
+        return this.dAO.insertAngsuran(angsuran);
     }
 }

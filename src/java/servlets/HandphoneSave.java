@@ -2,6 +2,7 @@
 package servlets;
 
 import controllers.BarangController;
+import controllers.DetailJMController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ public class HandphoneSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+            String idB = request.getParameter("id_barang");
             String jenis = request.getParameter("cbxJenis");
             String merk = request.getParameter("cbxMerk");
             String tipe = request.getParameter("txtTipe");
@@ -37,9 +39,11 @@ public class HandphoneSave extends HttpServlet {
             String gambar = request.getParameter("txtGambar");
             String desk = tipe+";"+kondisi;
          try (PrintWriter out = response.getWriter()) {
+            DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
+            String detail = djmc.search2(jenis, merk).getIdDetail();
             BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
-            if (bc.saveOrEdit(jenis, merk,jual, gambar, desk)) {
-                response.sendRedirect("views/gadaiElektronikView.jsp");
+            if (bc.saveOrEdit(idB, detail,jual, gambar, desk)) {
+                response.sendRedirect("views/handphone.jsp");
             }
             else
             {

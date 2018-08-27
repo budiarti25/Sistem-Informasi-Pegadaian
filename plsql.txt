@@ -1,0 +1,292 @@
+insert into pegadaian.role values('A','Admin');
+insert into pegadaian.role values('U','User');
+insert into pegadaian.role values('S','SupAd');
+
+Insert into PEGADAIAN.AKUN VALUES('3312226511960002','BUDIARTI','P','BULING','012/005','BUBAKAN','GIRIMARTO','WONOGIRI','JAWA TENGAH','A')
+select * from PEGADAIAN.AKUN;
+
+
+CREATE OR REPLACE PROCEDURE insertMerk( 
+  f_id in merk.id_merk%type,
+  f_nama in merk.nama_merk%type
+)
+IS
+BEGIN
+ insert into merk values (f_id, f_nama);
+END;
+
+
+BEGIN
+insertmerk('M1', 'LG');
+insertmerk('M2', 'SAMSUNG');
+insertmerk('M3', 'POLYTRON');
+insertmerk('M4', 'SHAP');
+insertmerk('M5', 'ACER');
+insertmerk('M6', 'LENOVO');
+insertmerk('M7', 'ASUS');
+insertmerk('M8', 'HP');
+insertmerk('M9', 'HONDA');
+insertmerk('M10', 'YAMAHA');
+END;
+
+
+CREATE OR REPLACE PROCEDURE insertJenis( 
+  f_id in jenis_barang.id_jenis%type,
+  f_nama in jenis_barang.nama_jenis%type
+  f_kategoriId in jenis_barang.id_kategori%type
+)
+IS
+BEGIN
+ insert into merk values (f_id, f_nama, f_kategori);
+END;
+
+
+insert into pegadaian.KATEGORI_BARANG values('KT1','Perhiasan');
+insert into pegadaian.KATEGORI_BARANG values('KT2','Gadget');
+insert into pegadaian.KATEGORI_BARANG values('KT3','Elektronik');
+insert into pegadaian.KATEGORI_BARANG values('KT4','Kendaraan');
+
+insert into pegadaian.JENIS_BARANG VALUES ('JN1','KT1','Cincin');
+insert into pegadaian.JENIS_BARANG VALUES ('JN2','KT1','Gelang');
+insert into pegadaian.JENIS_BARANG VALUES ('JN3','KT1','Kalung');
+insert into pegadaian.JENIS_BARANG VALUES ('JN4','KT1','Liontin');
+insert into pegadaian.JENIS_BARANG VALUES ('JN5','KT1','Anting');
+insert into pegadaian.JENIS_BARANG VALUES ('JN6','KT1','Perhiasan Lainnya');
+insert into pegadaian.JENIS_BARANG VALUES ('JN7','KT2','Laptop');
+insert into pegadaian.JENIS_BARANG VALUES ('JN8','KT2','Handphone');
+insert into pegadaian.JENIS_BARANG VALUES ('JN9','KT3','Kamera');
+insert into pegadaian.JENIS_BARANG VALUES ('JN10','KT3','Televisi');
+insert into pegadaian.JENIS_BARANG VALUES ('JN11','KT3','Rumah Tangga');
+insert into pegadaian.JENIS_BARANG VALUES ('JN12','KT4','Mobil');
+insert into pegadaian.JENIS_BARANG VALUES ('JN13','KT4','Motor');
+
+
+
+---------------Merk----------------------------
+CREATE OR REPLACE PROCEDURE insertMerk( 
+  f_merk merk.nama_merk%type
+)
+IS
+cursor c_merk is select id_merk, nama_merk from merk order by id_merk;
+temp number(10) := 1;
+tmp varchar2(10);
+idmerk varchar2(10);
+kode varchar2(2) := 'M';
+a c_merk%rowtype;
+begin
+ for a in c_merk loop
+ tmp := substr(a.id_merk, 3, 3);
+  if(temp > to_number(tmp))
+  then
+   temp := temp;
+  else
+   temp := temp+1;
+  end if;
+ end loop;
+idmerk := concat(kode, temp);
+insert into merk values(idmerk,f_merk);
+end;
+
+
+CREATE OR REPLACE PROCEDURE insertMerk( 
+  f_id merk.id_merk%type,
+  f_merk merk.nama_merk%type
+)
+IS
+begin
+insert into merk values(f_id,f_merk);
+end;
+
+begin
+insertMerk('Infinix');
+end;
+
+insertMerk('Apple');
+insertMerk('BlackBery');
+insertMerk('Huawei');
+begin
+insertMerk('M11','Infinix');
+insertMerk('M12','Nokia');
+insertMerk('M13','Oppo');
+insertMerk('M14','Xiaomi');
+insertMerk('M15','Toshiba');
+insertMerk('M16','Compaq');
+insertMerk('M17','Dell');
+insertMerk('M18','Sony');
+insertMerk('M19','Axioo');
+insertMerk('M20','Cannon');
+insertMerk('M21','Nikon');
+insertMerk('M22','Panasonic');
+insertMerk('M23','Philips');
+insertMerk('M24','Maspion');
+insertMerk('M25','Miyako');
+insertMerk('M26','Sanken');
+insertMerk('M27','Sanyo');
+insertMerk('M28','Bajaj');
+insertMerk('M29','Ducati');
+insertMerk('M30','Honda');
+insertMerk('M31','Kawasaki');
+insertMerk('M32','Suzuki');
+insertMerk('M33','Vespa');
+insertMerk('M34','Viar');
+insertMerk('M35','Yamaha');
+insertMerk('M36','BMW');
+insertMerk('M37','Chery');
+insertMerk('M38','Chevrolet');
+insertMerk('M39','Daihatsu');
+insertMerk('M40','Dasun');
+insertMerk('M41','Ford');
+insertMerk('M42','Hyunday');
+insertMerk('M43','Isuzu');
+insertMerk('M44','KIA');
+insertMerk('M45','Masda');
+insertMerk('M46','Mitsubishi');
+insertMerk('M47','Nissan');
+insertMerk('M48','Toyota');
+end;
+
+----------------Detail------------------
+
+CREATE OR REPLACE PROCEDURE insertDetailJenisMerk( 
+  f_jenis in Detail_jenis_merk.id_jenis%type,
+  f_merk in Detail_jenis_merk.id_merk%type
+)
+IS
+cursor c_detail is select id_detail, id_jenis, id_merk from detail_jenis_merk order by id_detail;
+temp number(10) := 1;
+tmp varchar2(10);
+idDet varchar2(10);
+kode varchar2(2) := 'JM';
+a c_detail%rowtype;
+begin
+ for a in c_detail loop
+ tmp := substr(a.id_detail, 3, 3);
+  if(temp > to_number(tmp))
+  then
+   temp := temp;
+  else
+   temp := temp+1;
+  end if;
+ end loop;
+idDet := concat(kode, temp);
+insert into detail_jenis_merk values(idDet,f_jenis,f_merk);
+end;
+
+
+
+CREATE OR REPLACE PROCEDURE insertDetailJenisMerk( 
+  f_id in Detail_jenis_merk.id_detail%type,  
+  f_jenis in Detail_jenis_merk.id_jenis%type,
+  f_merk in Detail_jenis_merk.id_merk%type
+)
+IS
+begin
+insert into detail_jenis_merk values(f_id,f_jenis,f_merk);
+end;
+
+
+-----------PROEDURE INSERT BARANG--------------
+
+create or replace procedure tambahBarang(id_det in Barang.id_detail%type, harga in Barang.harga_perkiraan%type, fto in Barang.foto%type)
+is
+cursor c_barang is select id_barang, id_detail, harga_perkiraan, foto, deskripsi from barang order by id_barang;
+temp number(10) := 1;
+tmp varchar2(10);
+idBrg varchar2(10);
+kode varchar2(2) := 'BR';
+a c_barang%rowtype;
+begin
+ for a in c_barang loop
+ tmp := substr(a.id_barang, 3, 3);
+  if(temp > to_number(tmp))
+  then
+   temp := temp;
+  else
+   temp := temp+1;
+  end if;
+ end loop;
+idBrg := concat(kode, temp);
+insert into barang values(idBrg, id_det, harga, fto, '');
+end;
+
+
+-------Procedure insert Pegajuan------------
+create or replace procedure tambahPengajuan(nikk in Pengajuan.nik%type, id_Brg in Pengajuan.id_barang%type, tanggal in Pengajuan.tanggal_pengajuan%type)
+is
+cursor c_pengajuan is select id_pengajuan, nik, id_barang, tanggal, status from pengajuan order by id_pengajuan;
+temp number(10) := 1;
+tmp varchar2(10);
+idPj varchar2(10);
+kode varchar2(2) := 'P';
+a c_pengajuan%rowtype;
+begin
+ for a in c_pengajuan loop
+ tmp := substr(a.id_pengajuan, 3, 3);
+  if(temp > to_number(tmp))
+  then
+   temp := temp;
+  else
+   temp := temp+1;
+  end if;
+ end loop;
+idPj := concat(kode, temp);
+insert into pengajuan values(idPj, nikk, id_Brg, tanggal, 'W');
+end;
+
+
+
+-----------------------Procedure insert transkasi--------------------
+create or replace procedure tambahTransaksi(id_Pnj in Transaksi.id_pengajuan%type, tanggal in Transaksi.tanggal_transaksi%type, dana in Transaksi.dana_cair%type)
+is
+cursor c_transaksi is select id_transaksi, id_pengajuan, tanggal_transaksi, dana_cair from transaksi order by id_transaksi;
+temp number(10) := 1;
+tmp varchar2(10);
+idTran varchar2(10);
+kode varchar2(2) := 'TR';
+a c_transaksi%rowtype;
+begin
+ for a in c_transaksi loop
+ tmp := substr(a.id_transaksi, 3, 3);
+  if(temp > to_number(tmp))
+  then
+   temp := temp;
+  else
+   temp := temp+1;
+  end if;
+ end loop;
+idTran := concat(kode, temp);
+insert into transaksi values(idTran, id_Pnj, tanggal, dana);
+end;
+
+
+
+------------------Procedure insert angsuran-------------------------
+create or replace procedure TotalPinjaman(id_trans in Transaksi.id_transaksi%type, dana in Transaksi.dana_cair%type, )
+is
+cursor a_cursor select id_transaksi, id_pengajuan, dana_cair, tanggal_transaksi, status from transaksi where id_transaksi=id_trans;
+ temp number(10);
+ tmp number(10);
+ total number(10);
+ adm  Parameter.administrasi%tpye;
+ gol Parameter.bunga%type;
+ begin
+select administrasi from parameter into adm;
+select bunga from parameter into gol;
+ if (dana<gol)
+then
+ temp :=(dana*0.75)/100;
+ else
+ temp :=(dana*1,15)/100;
+end if;
+
+ if(dana<adm)
+then
+ tmp := 20000;
+else
+ temp :=50000;
+end if; 
+total := dana+temp+tmp;
+end;
+begin
+tambahBarang('JM2', 2500000,'');
+END;

@@ -6,8 +6,14 @@
 package daos;
 
 import entities.Transaksi;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
 import org.hibernate.SessionFactory;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
+import tools.HibernateUtil;
 
 /**
  *
@@ -42,5 +48,24 @@ public class TransaksiDAO {
     
     public Object getAutoId(){
         return this.fdao.getById("select concat('TR',LPAD(to_number(substr(max(id_transaksi),3,2))+1,1,'0')) from transaksi");
+    }
+    
+    public int Total(Transaksi transaksi)throws SQLException{
+        int total = 0;
+        try {
+            Connection con = HibernateUtil.getSessionFactory()
+                    .getSessionFactoryOptions().getServiceRegistry()
+                    .getService(ConnectionProvider.class).getConnection();
+            con.createStatement().execute("alter session set current_schema=pegadaian");
+            CallableStatement cs = con.prepareCall("{Call TotalPinjaman(?,?,?)}");
+            cs.setString(1, transaksi.getIdTransaksi());
+            cs.setLong(2, transaksi.getDanaCair());
+            cs.registerOutParameter(3, Types.INTEGER);
+            cs.execute();
+            System.out.println(cs.getInt(3));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return total;
     }
 }

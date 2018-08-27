@@ -4,6 +4,11 @@
     Author     : misbah alkhafadh
 --%>
 
+<% if (session.getAttribute("name")== null) {
+        response.sendRedirect("../../form/loginUser.jsp");
+    }else{
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -138,21 +143,8 @@
                                         <a class="dropdown-item" href="#">Another One</a>
                                     </div>
                                 </li>
-                                <%
-                                    response.setHeader("Cache-Control", "no-cache");
-                                    response.setHeader("Cache-Control", "no-store");
-                                    response.setHeader("Pragma", "no-cache");
-//                                    response.setDateHeader("Expires", 0);
-//                                    if (session != null) {
-                                        if (session.getAttribute("name") == null) {
-                                            response.sendRedirect("../userViews/index.jsp");
-                                        } else {
-//                                            String 
-                                        }
-//                                    }
-                                %>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="../../userViews/index.jsp">
+                                    <a class="nav-link" href="../../logoutUserServlet">
                                         <i class="material-icons" data-toggle="tooltip" data-placement="top" title="Logout">power_settings_new</i>
                                     </a>
                                 </li>
@@ -219,3 +211,5 @@
 
     </body>
 </html>
+
+<%}%>

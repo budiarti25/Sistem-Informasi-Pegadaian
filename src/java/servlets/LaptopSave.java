@@ -1,12 +1,15 @@
 
 package servlets;
 
+import controllers.BarangController;
+import controllers.DetailJMController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tools.HibernateUtil;
 
 /**
  *
@@ -26,8 +29,26 @@ public class LaptopSave extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
+        String idB = request.getParameter("id_barang");
+            String jenis = request.getParameter("id_jenis");
+            String merk = request.getParameter("cbxMerk");
+            String tipe = request.getParameter("txtTipe");
+            String hardisk = request.getParameter("txthard");
+            String tahun = request.getParameter("txttahun");
+            String jual = request.getParameter("txtharga");
+            String gambar = request.getParameter("foto");
+            String desk = tipe+";"+hardisk+";"+tahun+";"+jual;
+         try (PrintWriter out = response.getWriter()) {
+            DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
+            String detail = djmc.search2(jenis, merk).getIdDetail();
+            BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
+            if (bc.saveOrEdit(idB, detail,jual, gambar, desk)) {
+                response.sendRedirect("views/laptop.jsp");
+            }
+            else
+            {
+                out.println("Gagal");
+            }
         }
     }
 

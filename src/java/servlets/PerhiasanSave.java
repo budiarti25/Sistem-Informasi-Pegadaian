@@ -5,6 +5,8 @@
  */
 package servlets;
 
+import controllers.BarangController;
+import controllers.DetailJMController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import tools.HibernateUtil;
 
 /**
  *
@@ -43,13 +46,18 @@ public class PerhiasanSave extends HttpServlet {
         String foto = request.getParameter("foto");
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
+        
         try (PrintWriter out = response.getWriter()) {
-            out.println(idB);
-            out.println(idM);
-            out.println(jenis);
-            out.println(deskripsi);
-            out.println(harga);
-            out.println(foto);
+            DetailJMController djmc = new DetailJMController(HibernateUtil.getSessionFactory());
+            String detail = djmc.search2(jenis, idM).getIdDetail();
+            BarangController bc = new BarangController(HibernateUtil.getSessionFactory());
+            if (bc.saveOrEdit(idB, detail, Integer.toString(harga), foto, deskripsi)) {
+                response.sendRedirect("views/perhiasan.jsp");
+            }
+            else
+            {
+                out.println("Gagal");
+            }
         }
     }
 

@@ -60,4 +60,8 @@ public class DetailJMController {
         DetailJenisMerk jenisMerk = new DetailJenisMerk();
         return this.dAO.getAutoId();
     }
+    
+    public DetailJenisMerk search2(String category, String data) {
+        return (DetailJenisMerk) this.dAO.search2(category, data);
+    }
 }
